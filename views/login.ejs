@@ -1,0 +1,32 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+	<% include partials/head %>
+</head>
+<body>
+	<div class="full-bgd">
+		<div class="fluid-box-center login">
+			<h1 class="cUniv">Bonjour à tous et bienvenue !</h1>
+			<p>Saisissez l'identifiant et le mot de passe inscrit notre faire-part pour accèder au site.</p>
+			<!-- LOGIN FORM -->
+			<form action="/" method="post">
+				<p>
+					<label>Identifiant</label>
+					<input type="text" required name="username">
+				</p>
+				<p>
+					<label>Mot de passe</label>
+					<input type="password" required name="password">
+				</p>
+				<!-- show any messages that come back with authentication -->
+				<% if (message.length > 0) { %>
+					<div class="error"><%= message %></div>
+				<% } %>
+				<button class="btn" type="submit">Connexion</button>
+			</form>
+			<!--<p>Need an account? <a href="/signup">Signup</a></p>-->
+		</div>
+	</div>
+</body>
+</html>

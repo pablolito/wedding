@@ -1,0 +1,351 @@
+/* ----------------------------- */
+/* == soft reset                 */
+/* ----------------------------- */
+
+* {
+  box-sizing: inherit;
+  -moz-box-sizing : inherit;
+  outline: none;
+}
+
+ul, ol, li {
+  padding:0;
+  margin:0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* height auto only for non SVG images */
+img:not([src$=".svg"]) {
+  height: auto;
+}
+
+blockquote,
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* ----------------------------- */
+/* == typography                 */
+/* ----------------------------- */
+
+html {
+  /* switching to border-box model for all elements */
+  box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+
+  /* set base font-size to equiv "10px", which is adapted to rem unit */
+  font-size: 62.5% !important;
+
+  /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+  /* thanks to @guardian, @victorbritopro and @eQRoeil */
+  //font-size: calc(1rem * 0.625);
+}
+
+body {
+  font-size: ($base-font-size / 10px) + rem;
+  background-color: $base-background;
+  color: $base-color;
+  font-family: $font-stack-common;
+  line-height: $line-height;
+}
+
+/* font-sizing for content */
+p,
+p-like,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea,
+caption,
+details,
+figure {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: $line-height;
+}
+
+h1,
+.h1-like {
+  font-size: $h1-size;
+  font-weight: normal;
+  font-family: "century-gothic-bold", Helvetica;
+}
+
+h2,
+.h2-like {
+  font-size: $h2-size;
+  font-weight: normal;
+  font-family: "century-gothic-bold", Helvetica;
+}
+
+h3,
+.h3-like {
+  font-size: $h3-size;
+  font-weight: normal;
+  font-family: "century-gothic-bold", Helvetica;
+}
+
+h4,
+.h4-like {
+  font-size: $h4-size;
+  font-weight: normal;
+  font-family: "century-gothic", Helvetica;
+}
+
+h5,
+.h5-like {
+  font-size: $h5-size;
+  font-weight: normal;
+  font-family: "century-gothic", Helvetica;
+}
+
+h6,
+.h6-like {
+  font-size: $h6-size;
+  font-weight: normal;
+  font-family: "century-gothic", Helvetica;
+}
+
+code,
+pre,
+samp,
+kbd {
+  /* IE fix */
+  white-space: pre-line;
+  white-space: pre-wrap;
+  font-family: $font-stack-monospace;
+  line-height: normal;
+}
+
+em,
+italic,
+address,
+cite,
+i,
+var {
+  font-style: italic;
+}
+
+/* ----------------------------- */
+/* == hiding content             */
+/* ----------------------------- */
+
+/* hidden but not for an assistive technology like a screen reader, Yahoo! method */
+.visually-hidden {
+  position: absolute !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+/* ----------------------------- */
+/* == browsers consistency       */
+/* ----------------------------- */
+
+/* avoid top margins on first content element */
+p,
+p-like,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+h1,
+h1-like,
+h2,
+h2-like,
+h3,
+h3-like,
+h4,
+h4-like,
+h5,
+h5-like,
+h6,
+h6-like {
+  margin:0;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+/* max values */
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+video,
+svg {
+  max-width: 100%;
+}
+
+// generic class
+/* basic styles */
+.txtupp{
+  text-transform: uppercase;;
+}
+.vmiddle{
+  vertical-align: middle;
+}
+.txtb{
+  font-family: "century-gothic-bold";
+  font-weight: normal;
+}
+.txti{
+  font-family: "century-gothic-italic";
+}
+
+/* layout position */
+.cnt-center{
+  padding: 0 20px;
+}
+.txtcenter{
+  text-align: center;
+}
+.txtleft{
+  text-align: left;
+}
+.txtright{
+  text-align: right;
+}
+
+/* center top left box */
+.fluid-box-center{
+  display: inline-block;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  z-index: 10;
+  transform:translate(-50%, -50%);
+}
+
+/* float */
+.mod:before, .mod:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+/* table-cell display */
+.row{
+  display: table;
+  width: 100%;
+  .col{
+    display:table-cell;
+  }
+}
+
+/* inline-block display */
+.inbl, .inbl-list li{
+  display: inline-block;
+}
+
+
+/* color */
+.error{
+  color: $error-color;
+}
+
+
+/* generic spacing margin, padding */
+.nopa{
+  padding:0;
+}
+.pb2{
+  padding-bottom:20px;
+}
+.pt2{
+  padding-top:20px;
+}
+
+.mb05{
+  margin-bottom:5px;
+}
+.mb1{
+  margin-bottom:10px;
+}
+.mb15{
+  margin-bottom:15px;
+}
+.mb2{
+  margin-bottom:20px;
+}
+.mb25{
+  margin-bottom:25px;
+}
+.mb3{
+  margin-bottom:30px;
+}
+.mb35{
+  margin-bottom: 35px;
+}
+.mb4{
+  margin-bottom: 40px;
+}
+.mb5{
+  margin-bottom: 50px;
+}
+
+.mr05{
+  margin-right:5px;
+}
+.mr1{
+  margin-right:10px;
+}
+.mr15{
+  margin-right:15px;
+}
+.mr2{
+  margin-right:20px;
+}
+.mr25{
+  margin-right:25px;
+}
+.mr3{
+  margin-right:30px;
+}
+.mr35{
+  margin-right:35px;
+}
+.mr4{
+  margin-right:40px;
+}
+.mr45{
+  margin-right:45px;
+}
+.mr5{
+  margin-right:50px;
+}
+
+
+@media (min-width: $screen-md) {
+  .cnt-center{
+    margin:0 auto;
+    width:$template-width;
+    padding: 0;
+  }
+}
+
+
+

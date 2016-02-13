@@ -1,0 +1,23 @@
+{
+  "name": "node-authentication",
+  "main": "server.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-consolidate": "^0.1.2",
+    "gulp-iconfont": "^5.0.0",
+    "gulp-iconfont-css": "^2.0.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-sass": "^2.1.0",
+    "express": "~3.4.4",
+    "ejs": "~0.8.5",
+    "mongoose": "~3.8.1",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "connect-flash": "~0.1.1",
+    "bcrypt-nodejs": "latest"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.0"
+  }
+}

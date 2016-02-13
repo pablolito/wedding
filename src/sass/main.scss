@@ -1,0 +1,225 @@
+/* ----------------------------- */
+/* == Wedding             */
+/* ----------------------------- */
+
+// LESS config file
+// -----------------
+@import "_config";
+
+@import "_mixin"; // mixin
+
+@import "_normalize"; // normalize
+
+@import "_grid"; // bootstrap grid
+
+@import "_base"; // reset and basic styles
+
+@import "_forms"; // custom form */
+
+@import "_ui"; // ui elements (popin, tooltip, etc)
+
+/* ----------------------------- */
+/* ==project styles              */
+/* ----------------------------- */
+
+// reset project
+a, a:hover{
+	text-decoration: none;
+	color: $base-color;
+}
+a:hover, a:active, a:focus{
+	color: $base-color;
+}
+
+ul, li{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  }
+
+
+/* default color for example title */
+.cUniv{
+	color:$primary-color;
+}
+
+.custom-list{
+	width:200px;
+}
+
+/* template mobile first */
+header{
+	width: 100%;
+	padding:10px 0;
+}
+
+section{
+	background-color: #FFF;
+}
+
+footer{
+	color:#FFF;
+	background-color:$secondary-background;
+	padding:5px 0;
+	&.fixed{
+		position:fixed;
+		bottom: 0;
+		z-index: 50;
+		width: 100%;
+	}
+}
+
+/* btn */
+.btn{
+	@include border-radius(5px);
+	padding: 10px;
+	background-color: $primary-color;
+	border: 0;
+	color: #FFF;
+}
+
+
+/* login page */
+
+.full-bgd{
+	position: fixed;
+	width: 100%;
+	height:100%;
+	top: 0;
+	left:0;
+	background: url(../img/bgd-login.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+.fluid-box-center{
+	h1{
+		margin-bottom: 20px;
+	}
+	width: 380px;
+	&.login{
+		background: rgba(255, 255, 255, 0.9);
+		padding: 20px;
+		label{
+			width: 100px;
+		}
+		label, input{
+			display: inline-block;
+			font-size: 16px;
+		}
+		p{
+			margin-bottom: 10px;
+			&:last-child{
+				margin:0;
+			}
+		}
+		.btn{
+			margin-top:20px;
+		}
+	}
+	
+}
+
+/* main layout */
+
+header{
+	background-color: #FFF;
+	padding: 20px 0;
+	@include box-shadow(1px 1px 5px 3px #e1e1e1);
+	.logo{
+		font-size: 20px;
+		span{
+			font-family: "century-gothic-bold";
+		}
+	}
+	nav{
+		position: relative;
+		.icon{
+			font-size: 20px;
+			cursor: pointer;
+		}
+		ul{
+			display: none;
+			position: absolute;
+			z-index: 10;
+			top: 40px;
+			right: -20px;
+			background-color: #FFF;
+			padding: 20px;
+			&.active{
+				display: block;
+			}
+		}
+		li{
+			font-family: "century-gothic";
+			font-size: 16px;
+			text-align: right;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+@media (min-width: $screen-xs-min) {
+	header {
+		nav{
+			.icon{
+				display: none;
+			}
+			ul{
+				display: block;
+				position: static;
+				padding: 0;
+				li{
+					display: inline-block;
+					font-size: 16px;
+					text-align: left;
+					margin: 0;
+					a{
+						padding: 0 10px;
+						border-right: 1px solid #e1e1e1;
+					}
+					&:last-child{
+						a{
+							border-right: none;
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+section{
+	&.push-bride-groom{
+		background:url(../img/bgd-login.jpg) fixed 0 0 no-repeat;
+		background-size: cover;
+		height: 526px;
+		position: relative;
+		position: relative;
+	}
+	.wtf-area{
+		position: absolute;
+		left: 0;
+		top: 180px;
+		.top{
+			background-color: $primary-color;
+			color: #FFF;
+			font-size: 32px;
+			padding: 20px;
+		}
+		.bottom{
+			background-color: #FFF;
+			color: $primary-color;
+			font-size: 40px;
+			padding: 20px;
+		}
+	}
+}
+
+@media (min-width: $screen-xs-min) {
+	&.push-bride-groom{
+		height: 926px;
+	}
+}
+

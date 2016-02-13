@@ -1,0 +1,140 @@
+/* UI Elements */
+
+/* tooltip */
+.tooltip-js{
+	cursor:pointer;
+	position: relative;
+	&.active{
+		.desc{
+			display: block;
+		}
+	}
+	.desc{
+		position: absolute;
+		top:0px;
+		left:0px;
+		width: 130px;
+		display: none;
+		z-index: 2;
+		background: #FFF;
+		padding:20px 10px 10px 10px;
+		border:1px solid #e3e3e3;
+		.close{
+			position: absolute;
+			top:0px;
+			right: 10px;
+			z-index: 1;
+			font-size: 18px;
+			color: #767778;
+		}
+		&:before{
+			width: 11px;
+			height: 7px;
+			position: absolute;
+			top:-7px;
+			left:58px;
+			background: url(../img/triangle-up.png) 0 0 no-repeat;
+			content:"";
+		}
+	}
+}
+
+/* custom menu list */
+.custom-list{
+	@include border-radius(5px);
+	@include transition(opacity 0.5s);
+	background-color: #FFF;
+	border:1px solid #e3e3e3;
+	position: relative;
+	cursor: pointer;
+	.ref{
+		margin:0;
+		overflow: hidden;
+	}
+	&.open{
+		.sub{
+			display: block !important;
+		}
+	}
+	.sub{
+		display: none;
+		line-height: normal;
+		top: 37px;
+		position: absolute;
+		min-width: calc(100% + 2px);
+		left: -1px;
+		z-index: 5;
+		background-color: #FFF;
+		border:1px solid #e3e3e3;
+		padding: 10px;
+		width: auto;
+		cursor: default;
+		ul{
+			max-height:185px;
+			overflow-y: scroll;
+			@include scrollbar();
+			li{
+				padding: 5px 10px;
+				white-space:nowrap;
+				&:last-child{
+					margin-bottom:0;
+				}
+			}
+		}
+	}
+	.open-list-js{
+		padding:10px 30px 10px 15px;
+		background-image: url(../img/select-arrow-grey.svg);
+		background-repeat: no-repeat;
+		background-position-x: calc(100% - 15px);
+		background-position-y: center;
+		background-size: 10px 7px;
+	}
+}
+
+
+/* popin */
+.modal, .popin{
+	position:fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	top: 0;
+	left: 0;
+}
+
+.popin{
+	@include transform(preserve-3d);
+	@include transition(opacity 0.5s);
+	opacity:0;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	z-index: 100;
+	.popin-cnt{
+		@include transform(translateY(-50%)); // vertical align center
+    	@include border-radius(10px);
+		display: inline-block;
+		position: relative;
+    	top: 50%;
+    	padding:30px;
+    	background-color: #FFF;
+    	.close-ico{
+    		background: url(../img/ico-close.svg) 0 0 no-repeat;
+    		width: 30px;
+    		height: 30px;
+    		position: absolute;
+    		top:30px;
+    		right: 30px;
+    		z-index: 1;
+    		cursor: pointer;
+    	}
+	}
+}
+
+/* ajax loader */
+img.ajax-loader{
+	position: absolute;
+	z-index:5;
+	top:40%;
+	left:45%;
+}
