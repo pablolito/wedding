@@ -49,98 +49,26 @@ input[type=text], input[type=password], input[type=email]{
   } 
 }
 
- /* custom radio button */
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
-  position: absolute;
-  left: -9999px;
-}
+ 
 
-[type="radio"]:not(:checked) + label,
-[type="radio"]:checked + label {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  padding-top:3px;
-}
-[type="radio"]:checked + label {
-    color:#3a3b3d;
-}
-
-[type="radio"]:not(:checked) + label:before,
-[type="radio"]:checked + label:before {
-  content: '';
-  position: absolute;
-  left:0; top: 0px;
-  width: 19px; height: 19px; /* dim. de la case */
-  border: 1px solid #cdcdcd;
-  background: #f0f0f0;
-  @include border-radius(19px);
-}
-
-[type="radio"]:checked + label:before {
-    border: 1px solid #3a3b3d;
-}
-
-[type="radio"]:not(:checked) + label:after,
-[type="radio"]:checked + label:after {
-  content: '';
-  position: absolute;
-  top: 4px; left: 4px;
-  height:13px;
-  width:13px;
-  @include border-radius(13px);
-  background-color: #3a3b3d;
-  transition: all .2s; 
-  font-family: arial;
-}
-
-[type="radio"]:not(:checked) + label:after {
-  opacity: 0; /* coche invisible */
-  /*transform: scale(0);*/
-}
-
-[type="radio"]:checked + label:after {
-  opacity: 1;
-  /*transform: scale(1);*/
-  color:#3a3b3d;
-}
-
-[type="radio"]:disabled + label{color:#666;}
-[type="radio"]:disabled:not(:checked) + label:before,
-[type="radio"]:disabled:checked + label:before {
-  border-color: #bbb;
-  background-color: #ddd;
-}
-[type="radio"]:disabled:checked + label:after {
-  color: #999;
-}
-
-[type="radio"]:checked:focus + label:before{
-   border: 1px dotted #3a3b3d;
-}
-[type="radio"]:not(:checked):focus + label:before {
-  border: 1px dotted #666;
-}
-
- /* custom checkbox */
- .custom-checkbox{
-  [type="checkbox"]:not(:checked),[type="checkbox"]:checked {
+ /* custom radio (checkbox style :) */
+ .custom-radio{
+  [type="radio"]:not(:checked),[type="radio"]:checked {
     position: absolute;
     left: -9999px;
   }
 
-  [type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
+  [type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
     position: relative;
     padding-left: 25px;
     cursor: pointer;
     padding-top:3px;
   }
-  [type="checkbox"]:checked + label {
+  [type="radio"]:checked + label {
     color:#3a3b3d;
   }
 
-  [type="checkbox"]:not(:checked) + label:before, [type="checkbox"]:checked + label:before {
+  [type="radio"]:not(:checked) + label:before, [type="radio"]:checked + label:before {
     content: '';
     position: absolute;
     left:0; top: 0px;
@@ -150,11 +78,11 @@ input[type=text], input[type=password], input[type=email]{
     @include border-radius(3px);
   }
 
-  [type="checkbox"]:checked + label:before {
+  [type="radio"]:checked + label:before {
     border: 1px solid #3a3b3d;
   }
 
-  [type="checkbox"]:not(:checked) + label:after, [type="checkbox"]:checked + label:after {
+  [type="radio"]:not(:checked) + label:after, [type="radio"]:checked + label:after {
     content: '';
     position: absolute;
     top: 4px; left: 4px;
@@ -165,31 +93,31 @@ input[type=text], input[type=password], input[type=email]{
     font-family: arial;
   }
 
-  [type="checkbox"]:not(:checked) + label:after {
+  [type="radio"]:not(:checked) + label:after {
     opacity: 0; /* coche invisible */
     /*transform: scale(0);*/
   }
 
-  [type="checkbox"]:checked + label:after {
+  [type="radio"]:checked + label:after {
     opacity: 1;
     /*transform: scale(1);*/
     color:#3a3b3d;
   }
 
-  [type="checkbox"]:disabled + label{color:#666;}
-  [type="checkbox"]:disabled:not(:checked) + label:before,
-  [type="checkbox"]:disabled:checked + label:before {
+  [type="radio"]:disabled + label{color:#666;}
+  [type="radio"]:disabled:not(:checked) + label:before,
+  [type="radio"]:disabled:checked + label:before {
     border-color: #bbb;
     background-color: #ddd;
   }
-  [type="checkbox"]:disabled:checked + label:after {
+  [type="radio"]:disabled:checked + label:after {
     color: #999;
   }
 
-  [type="checkbox"]:checked:focus + label:before{
+  [type="radio"]:checked:focus + label:before{
     border: 1px dotted #3a3b3d;
   }
-  [type="checkbox"]:not(:checked):focus + label:before {
+  [type="radio"]:not(:checked):focus + label:before {
     border: 1px dotted #666;
   }   
 }

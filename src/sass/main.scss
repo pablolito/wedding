@@ -55,6 +55,10 @@ header{
 
 section{
 	background-color: #FFF;
+	height: 400px;
+	&.bgd{
+		background-color: $primary-color;
+	}
 }
 
 footer{
@@ -124,30 +128,36 @@ footer{
 header{
 	background-color: #FFF;
 	padding: 20px 0;
-	@include box-shadow(1px 1px 5px 3px #e1e1e1);
+	@include box-shadow(1px 1px 5px 1px #737373);
+	&.fixed{
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 50;
+		width: 100%;
+	}
+	.cnt-center{
+		position: relative;
+	}
 	.logo{
 		font-size: 20px;
 		span{
 			font-family: "century-gothic-bold";
 		}
 	}
+	.icon{
+		font-size: 20px;
+		cursor: pointer;
+		position: absolute;
+		right: 20px;
+		top: 0;
+	}
 	nav{
-		position: relative;
-		.icon{
-			font-size: 20px;
-			cursor: pointer;
-		}
-		ul{
-			display: none;
-			position: absolute;
-			z-index: 10;
-			top: 40px;
-			right: -20px;
-			background-color: #FFF;
-			padding: 20px;
-			&.active{
-				display: block;
-			}
+		padding: 20px 0 0 0;
+		display: none;
+		width: 100%;
+		&.active{
+			display: block;
 		}
 		li{
 			font-family: "century-gothic";
@@ -159,15 +169,20 @@ header{
 }
 
 @media (min-width: $screen-xs-min) {
+	.hide-on-desktop{
+		display: none;
+	}
 	header {
+		.logo{
+			float: left;
+		}
 		nav{
-			.icon{
-				display: none;
-			}
+			display: block;
+			padding: 0;
+			float: right;
+			width: 80%;
+			text-align: right;
 			ul{
-				display: block;
-				position: static;
-				padding: 0;
 				li{
 					display: inline-block;
 					font-size: 16px;
@@ -192,16 +207,14 @@ header{
 
 section{
 	&.push-bride-groom{
-		background:url(../img/bgd-login.jpg) fixed 0 0 no-repeat;
+		background:url(../img/bgd-login.jpg) 0 0 no-repeat;
 		background-size: cover;
 		height: 526px;
-		position: relative;
+		overflow: hidden;
 		position: relative;
 	}
 	.wtf-area{
-		position: absolute;
-		left: 0;
-		top: 180px;
+		padding-top:150px;
 		.top{
 			background-color: $primary-color;
 			color: #FFF;
@@ -211,8 +224,19 @@ section{
 		.bottom{
 			background-color: #FFF;
 			color: $primary-color;
-			font-size: 40px;
+			font-size: 38px;
 			padding: 20px;
+		}
+	}
+	.going-area{
+		padding-top: 30px;
+		@include transform(rotate(-10deg));
+		p{
+			margin-bottom:10px;
+		}
+		label{
+			color: #FFF;
+			font-size: 20px;
 		}
 	}
 }
