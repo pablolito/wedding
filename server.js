@@ -25,7 +25,6 @@ app.configure(function() {
 	//app.use(express.bodyParser()); // get information from html forms
 	app.use(express.static('public')); // folder for my static files
 
-
 	app.use(bodyParser.json()); // support json encoded bodies
 	app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 

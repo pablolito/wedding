@@ -168,7 +168,7 @@ header{
 	}
 }
 
-@media (min-width: $screen-xs-min) {
+@media (min-width: $screen-sm-min) {
 	.hide-on-desktop{
 		display: none;
 	}
@@ -206,6 +206,7 @@ header{
 
 
 section{
+	padding: 20px 0;
 	&.push-bride-groom{
 		background:url(../img/bgd-login.jpg) 0 0 no-repeat;
 		background-size: cover;
@@ -214,7 +215,7 @@ section{
 		position: relative;
 	}
 	.wtf-area{
-		padding-top:150px;
+		padding-top:20%;
 		.top{
 			background-color: $primary-color;
 			color: #FFF;
@@ -229,19 +230,21 @@ section{
 		}
 	}
 	.going-area{
-		padding-top: 30px;
-		@include transform(rotate(-10deg));
+		padding-top: 40px;
+		text-align: center;
 		p{
 			margin-bottom:10px;
 		}
 		label{
 			color: #FFF;
-			font-size: 20px;
+			font-size: 25px;
+			@include transform(rotate(-10deg));
+			display: inline-block;
 		}
 	}
 }
 
-@media (min-width: $screen-xs-min) {
+@media (min-width: $screen-sm-min) {
 	&.push-bride-groom{
 		height: 926px;
 	}

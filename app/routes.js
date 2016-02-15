@@ -71,6 +71,10 @@ module.exports = function(app, passport) {
 		req.logout();
 		res.redirect('/');
 	});
+
+	app.get('/*', function(req, res) {
+    	res.redirect('/');
+	});
 };
 
 // route middleware to make sure
