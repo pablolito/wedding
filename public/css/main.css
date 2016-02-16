@@ -18,6 +18,22 @@
   font-family: 'century-gothic-italic';
   src: url("fonts/GOTHICI.ttf") format("truetype"); }
 
+@font-face {
+  font-family: 'Amatic-Regular';
+  src: url("fonts/AmaticSC-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Amatic-Bold';
+  src: url("fonts/AmaticSC-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'CRIALTRIAL';
+  src: url("fonts/CRIALTRIAL.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'CRBLATRIAL';
+  src: url("fonts/CRBLATRIAL.ttf") format("truetype"); }
+
 /* effect mixin */
 /* animation mixin */
 /* box-sizing mixins */
@@ -1300,7 +1316,6 @@ input[type=text], input[type=password], input[type=email] {
   width: 20px;
   height: 20px;
   border: 1px solid #fff;
-  background: #fff;
   border-radius: 3px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3); }
 
@@ -1522,25 +1537,26 @@ ul, li {
   width: 200px; }
 
 /* template mobile first */
-header {
-  width: 100%;
-  padding: 10px 0; }
-
 section {
   background-color: #FFF;
   height: 400px; }
   section.bgd {
     background-color: #2fa3e0; }
-
-footer {
-  color: #FFF;
-  background-color: #000;
-  padding: 5px 0; }
-  footer.fixed {
-    position: fixed;
-    bottom: 0;
-    z-index: 50;
-    width: 100%; }
+  section.bgd-texture {
+    position: relative;
+    background: url(../img/bgd-handmadepaper.png) 0 0 repeat; }
+    section.bgd-texture:before {
+      content: "";
+      background: url(../img/bgd-wave.png) 0 0 repeat-x;
+      height: 13px;
+      width: 100%;
+      position: absolute;
+      top: -13px;
+      left: 0; }
+    section.bgd-texture .separator-area {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px dashed #e1e1e1; }
 
 /* btn */
 .btn {
@@ -1597,9 +1613,8 @@ header {
   header .cnt-center {
     position: relative; }
   header .logo {
-    font-size: 20px; }
-    header .logo span {
-      font-family: "century-gothic-bold"; }
+    font-size: 30px;
+    font-family: "Amatic-Regular", Helvetica, sans-serif; }
   header .icon {
     font-size: 20px;
     cursor: pointer;
@@ -1613,7 +1628,7 @@ header {
     header nav.active {
       display: block; }
     header nav li {
-      font-family: "century-gothic";
+      font-family: "Amatic-Regular", Helvetica, sans-serif;
       font-size: 16px;
       text-align: right;
       margin-bottom: 5px; }
@@ -1628,10 +1643,11 @@ header {
     padding: 0;
     float: right;
     width: 80%;
-    text-align: right; }
+    text-align: right;
+    margin-top: 5px; }
     header nav ul li {
       display: inline-block;
-      font-size: 16px;
+      font-size: 25px;
       text-align: left;
       margin: 0; }
       header nav ul li a {
@@ -1643,32 +1659,45 @@ header {
 
 section {
   padding: 20px 0; }
+  section h2 {
+    font-family: "CRIALTRIAL", Helvetica, sans-serif;
+    font-size: 40px;
+    color: #f2a42a;
+    text-transform: uppercase;
+    text-align: center; }
+  section h3 {
+    font-family: "Amatic-Regular", Helvetica, sans-serif;
+    font-size: 25px;
+    color: #aa8bbe; }
   section.push-bride-groom {
-    background: url(../img/bgd-login.jpg) 0 0 no-repeat;
+    background: url(../img/bgd-first-2.jpg) fixed 0 0 no-repeat;
     background-size: cover;
     height: 526px;
     overflow: hidden;
     position: relative; }
   section .wtf-area {
-    padding-top: 20%; }
-    section .wtf-area .top {
-      background-color: #2fa3e0;
+    padding-top: 5%;
+    text-align: left;
+    text-transform: uppercase; }
+    section .wtf-area .top, section .wtf-area .bottom {
       color: #FFF;
-      font-size: 32px;
-      padding: 20px; }
+      font-family: "CRIALTRIAL", Helvetica, sans-serif;
+      padding: 20px;
+      text-shadow: 1px 1px 2px #969696; }
+    section .wtf-area .top {
+      font-size: 72px; }
     section .wtf-area .bottom {
-      background-color: #FFF;
-      color: #2fa3e0;
-      font-size: 38px;
-      padding: 20px; }
+      font-size: 50px; }
   section .going-area {
     padding-top: 40px;
-    text-align: center; }
+    text-align: left;
+    padding-left: 5%; }
     section .going-area p {
       margin-bottom: 10px; }
     section .going-area label {
       color: #FFF;
       font-size: 25px;
+      font-family: "Amatic-Regular", Helvetica, sans-serif;
       -webkit-transform: rotate(-10deg);
       -moz-transform: rotate(-10deg);
       -ms-transform: rotate(-10deg);
@@ -1677,5 +1706,7 @@ section {
       display: inline-block; }
 
 @media (min-width: 768px) {
+  section {
+    padding: 40px 0; }
   .push-bride-groom {
     height: 926px; } }

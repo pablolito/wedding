@@ -48,10 +48,6 @@ ul, li{
 }
 
 /* template mobile first */
-header{
-	width: 100%;
-	padding:10px 0;
-}
 
 section{
 	background-color: #FFF;
@@ -59,19 +55,26 @@ section{
 	&.bgd{
 		background-color: $primary-color;
 	}
-}
-
-footer{
-	color:#FFF;
-	background-color:$secondary-background;
-	padding:5px 0;
-	&.fixed{
-		position:fixed;
-		bottom: 0;
-		z-index: 50;
-		width: 100%;
+	&.bgd-texture{
+		position: relative;
+		background: url(../img/bgd-handmadepaper.png) 0 0 repeat;
+		&:before{
+			content: "";
+			background: url(../img/bgd-wave.png) 0 0 repeat-x;
+			height: 13px;
+			width: 100%;
+			position: absolute;
+			top: -13px;
+			left: 0;
+		}
+		.separator-area{
+			margin-top: 20px;
+			padding-top: 20px;
+			border-top: 1px dashed #e1e1e1;
+		}
 	}
 }
+
 
 /* btn */
 .btn{
@@ -140,10 +143,8 @@ header{
 		position: relative;
 	}
 	.logo{
-		font-size: 20px;
-		span{
-			font-family: "century-gothic-bold";
-		}
+		font-size: 30px;
+		font-family: $font-stack-tertiary;
 	}
 	.icon{
 		font-size: 20px;
@@ -160,7 +161,7 @@ header{
 			display: block;
 		}
 		li{
-			font-family: "century-gothic";
+			font-family: $font-stack-tertiary;
 			font-size: 16px;
 			text-align: right;
 			margin-bottom: 5px;
@@ -182,10 +183,11 @@ header{
 			float: right;
 			width: 80%;
 			text-align: right;
+			margin-top: 5px;
 			ul{
 				li{
 					display: inline-block;
-					font-size: 16px;
+					font-size: 25px;
 					text-align: left;
 					margin: 0;
 					a{
@@ -207,37 +209,53 @@ header{
 
 section{
 	padding: 20px 0;
+	h2{
+		font-family: $font-stack-secondary;
+		font-size: 40px;
+		color: #f2a42a;
+		text-transform: uppercase;
+		text-align: center;
+	}
+	h3{
+		font-family: $font-stack-tertiary;
+		font-size: 25px;
+		color: #aa8bbe;
+	}
 	&.push-bride-groom{
-		background:url(../img/bgd-login.jpg) 0 0 no-repeat;
+		background:url(../img/bgd-first-2.jpg) fixed 0 0 no-repeat;
 		background-size: cover;
 		height: 526px;
 		overflow: hidden;
 		position: relative;
 	}
 	.wtf-area{
-		padding-top:20%;
-		.top{
-			background-color: $primary-color;
+		padding-top:5%;
+		text-align: left;
+		text-transform: uppercase;
+		.top, .bottom{
 			color: #FFF;
-			font-size: 32px;
+			font-family: $font-stack-secondary;
 			padding: 20px;
+			text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+		}
+		.top{
+			font-size: 72px;
 		}
 		.bottom{
-			background-color: #FFF;
-			color: $primary-color;
-			font-size: 38px;
-			padding: 20px;
+			font-size: 50px;
 		}
 	}
 	.going-area{
 		padding-top: 40px;
-		text-align: center;
+		text-align: left;
+		padding-left: 5%;
 		p{
 			margin-bottom:10px;
 		}
 		label{
 			color: #FFF;
 			font-size: 25px;
+			font-family: $font-stack-tertiary;
 			@include transform(rotate(-10deg));
 			display: inline-block;
 		}
@@ -245,6 +263,9 @@ section{
 }
 
 @media (min-width: $screen-sm-min) {
+	section{
+		padding: 40px 0;
+	}
 	&.push-bride-groom{
 		height: 926px;
 	}

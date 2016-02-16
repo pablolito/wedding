@@ -31,9 +31,28 @@ $template-width:980px;
   src : url('fonts/GOTHICI.ttf')  format('truetype');
 }
 
+@font-face {
+  font-family: 'Amatic-Regular';
+  src : url('fonts/AmaticSC-Regular.ttf')  format('truetype');
+}
+@font-face {
+  font-family: 'Amatic-Bold';
+  src : url('fonts/AmaticSC-Bold.ttf')  format('truetype');
+}
+@font-face {
+  font-family: 'CRIALTRIAL';
+  src : url('fonts/CRIALTRIAL.ttf')  format('truetype');
+}
+@font-face {
+  font-family: 'CRBLATRIAL';
+  src : url('fonts/CRBLATRIAL.ttf')  format('truetype');
+}
+
 // font stacks
-$font-stack-common      : Helvetica, Arial, sans-serif; // headings font 
-$font-stack-secondary   : "century-gothic", Helvetica, sans-serif; // common font
+$font-stack-common      : Helvetica, Arial, sans-serif; // common font 
+$font-stack-secondary   : "CRIALTRIAL", Helvetica, sans-serif; // normal title
+$font-stack-secondary-alt: "CRBLATRIAL", Helvetica, sans-serif; // normal title
+$font-stack-tertiary	: "Amatic-Regular", Helvetica, sans-serif; // big title 
 $font-stack-monospace 	: console;
 
 // font colors
