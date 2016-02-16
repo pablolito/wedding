@@ -1,4 +1,5 @@
 // app/routes.js
+var Registration  = require('../app/models/registration');
 module.exports = function(app, passport) {
 
 	// =====================================
@@ -60,8 +61,21 @@ module.exports = function(app, passport) {
 
 	// process the inscription form
 	app.post('/profile', function(req, res) {
+		var titlePage = "MMA se marient ! - Welcome Dude";
+		console.log(Registration);
 	    var userName = req.body.username;
-	    res.send(userName);
+
+	    var addUser = new Registration({
+  			name: userName
+  		});
+
+  		addUser.save(function(err) {
+		  if (err) throw err;
+		  console.log('User saved successfully!');
+		});
+		res.render('profile.ejs', { user : req.user, // get the user out of session and pass to template
+			titlePage: titlePage });
+	    
 	});
 
 	// =====================================

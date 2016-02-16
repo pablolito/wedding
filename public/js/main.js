@@ -1,17 +1,5 @@
 /* main */
-var ui = {
-
-	popin:function(){
-		width: "380px"
-
-	},
-	tooltip: function(){
-
-	},
-	navfix: function(){
-
-	}
-}
+var ui = {};
 
 $(function(){
 	var $header = $("header"),
