@@ -3,22 +3,6 @@
 /* == Wedding             */
 /* ----------------------------- */
 @font-face {
-  font-family: 'century-gothic';
-  src: url("fonts/GOTHIC.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'century-gothic-bold';
-  src: url("fonts/GOTHICB.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'century-gothic-bold-italic';
-  src: url("fonts/GOTHICBI.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'century-gothic-italic';
-  src: url("fonts/GOTHICI.ttf") format("truetype"); }
-
-@font-face {
   font-family: 'Amatic-Regular';
   src: url("fonts/AmaticSC-Regular.ttf") format("truetype"); }
 
@@ -27,12 +11,8 @@
   src: url("fonts/AmaticSC-Bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'CRIALTRIAL';
-  src: url("fonts/CRIALTRIAL.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'CRBLATRIAL';
-  src: url("fonts/CRBLATRIAL.ttf") format("truetype"); }
+  font-family: 'the_rainmaker-webfont';
+  src: url("fonts/the_rainmaker-webfont.ttf") format("truetype"); }
 
 /* effect mixin */
 /* animation mixin */
@@ -1328,7 +1308,7 @@ input[type=text], input[type=password], input[type=email] {
   left: 4px;
   font-size: 20px;
   line-height: 0.8;
-  color: #2fa3e0;
+  color: #aa8bbe;
   transition: all .2s; }
 
 /* checked mark aspect changes */
@@ -1356,7 +1336,7 @@ input[type=text], input[type=password], input[type=email] {
 /* accessibility */
 [type="radio"]:checked:focus + label:before,
 [type="radio"]:not(:checked):focus + label:before {
-  border: 1px solid #2fa3e0; }
+  border: 1px solid #aa8bbe; }
 
 /* UI Elements */
 /* tooltip */
@@ -1531,17 +1511,16 @@ ul, li {
 
 /* default color for example title */
 .cUniv {
-  color: #2fa3e0; }
+  color: #aa8bbe; }
 
 .custom-list {
   width: 200px; }
 
 /* template mobile first */
 section {
-  background-color: #FFF;
-  height: 400px; }
+  background-color: #FFF; }
   section.bgd {
-    background-color: #2fa3e0; }
+    background-color: #aa8bbe; }
   section.bgd-texture {
     position: relative;
     background: url(../img/bgd-handmadepaper.png) 0 0 repeat; }
@@ -1564,9 +1543,10 @@ section {
   -moz-border-radius: 5px;
   border-radius: 5px;
   padding: 10px;
-  background-color: #2fa3e0;
+  background-color: #aa8bbe;
   border: 0;
-  color: #FFF; }
+  color: #FFF;
+  display: inline-block; }
 
 /* login page */
 .full-bgd {
@@ -1632,6 +1612,14 @@ header {
       font-size: 16px;
       text-align: right;
       margin-bottom: 5px; }
+      header nav li a {
+        -webkit-transition: color 0.6s ease-in;
+        -moz-transition: color 0.6s ease-in;
+        -ms-transition: color 0.6s ease-in;
+        -o-transition: color 0.6s ease-in;
+        transition: color 0.6s ease-in; }
+        header nav li a:hover {
+          color: #aa8bbe; }
 
 @media (min-width: 768px) {
   .hide-on-desktop {
@@ -1660,15 +1648,16 @@ header {
 section {
   padding: 20px 0; }
   section h2 {
-    font-family: "CRIALTRIAL", Helvetica, sans-serif;
+    font-family: "the_rainmaker-webfont", Helvetica, sans-serif;
     font-size: 40px;
-    color: #f2a42a;
+    color: #aa8bbe;
     text-transform: uppercase;
     text-align: center; }
   section h3 {
     font-family: "Amatic-Regular", Helvetica, sans-serif;
-    font-size: 25px;
-    color: #aa8bbe; }
+    font-size: 20px;
+    color: #766346;
+    margin-bottom: 5px; }
   section.push-bride-groom {
     background: url(../img/bgd-first-2.jpg) fixed 0 0 no-repeat;
     background-size: cover;
@@ -1681,16 +1670,18 @@ section {
     text-transform: uppercase; }
     section .wtf-area .top, section .wtf-area .bottom {
       color: #FFF;
-      font-family: "CRIALTRIAL", Helvetica, sans-serif;
-      padding: 20px;
-      text-shadow: 1px 1px 2px #969696; }
+      font-family: "the_rainmaker-webfont", Helvetica, sans-serif;
+      padding: 10px 0;
+      text-shadow: 1px 1px 2px #969696;
+      text-align: center; }
     section .wtf-area .top {
-      font-size: 72px; }
-    section .wtf-area .bottom {
       font-size: 50px; }
+    section .wtf-area .bottom {
+      font-size: 72px;
+      text-transform: none; }
   section .going-area {
     padding-top: 40px;
-    text-align: left;
+    text-align: center;
     padding-left: 5%; }
     section .going-area p {
       margin-bottom: 10px; }
@@ -1704,9 +1695,25 @@ section {
       -o-transform: rotate(-10deg);
       transform: rotate(-10deg);
       display: inline-block; }
+  section.prog {
+    color: #766346; }
+    section.prog .icon {
+      font-size: 20px;
+      margin-right: 5px; }
 
 @media (min-width: 768px) {
   section {
     padding: 40px 0; }
-  .push-bride-groom {
-    height: 926px; } }
+    section h2 {
+      font-size: 50px; }
+    section h3 {
+      font-size: 25px; }
+    section .wtf-area .top, section .wtf-area .bottom {
+      padding: 20px 0;
+      text-align: left; }
+    section .wtf-area .top {
+      font-size: 60px; }
+    section .wtf-area .bottom {
+      font-size: 42px; }
+    section .going-area {
+      text-align: left; } }

@@ -14,22 +14,6 @@ $h6-size        : 12px;
 $template-width:980px;
 
 // project font
-@font-face {
-  font-family: 'century-gothic';
-  src : url('fonts/GOTHIC.ttf')  format('truetype');
-}
-@font-face {
-  font-family: 'century-gothic-bold';
-  src : url('fonts/GOTHICB.ttf')  format('truetype');
-}
-@font-face {
-  font-family: 'century-gothic-bold-italic';
-  src : url('fonts/GOTHICBI.ttf')  format('truetype');
-}
-@font-face {
-  font-family: 'century-gothic-italic';
-  src : url('fonts/GOTHICI.ttf')  format('truetype');
-}
 
 @font-face {
   font-family: 'Amatic-Regular';
@@ -40,26 +24,22 @@ $template-width:980px;
   src : url('fonts/AmaticSC-Bold.ttf')  format('truetype');
 }
 @font-face {
-  font-family: 'CRIALTRIAL';
-  src : url('fonts/CRIALTRIAL.ttf')  format('truetype');
-}
-@font-face {
-  font-family: 'CRBLATRIAL';
-  src : url('fonts/CRBLATRIAL.ttf')  format('truetype');
+  font-family: 'the_rainmaker-webfont';
+  src : url('fonts/the_rainmaker-webfont.ttf')  format('truetype');
 }
 
 // font stacks
 $font-stack-common      : Helvetica, Arial, sans-serif; // common font 
-$font-stack-secondary   : "CRIALTRIAL", Helvetica, sans-serif; // normal title
+$font-stack-secondary   : "the_rainmaker-webfont", Helvetica, sans-serif; // normal title
 $font-stack-secondary-alt: "CRBLATRIAL", Helvetica, sans-serif; // normal title
 $font-stack-tertiary	: "Amatic-Regular", Helvetica, sans-serif; // big title 
 $font-stack-monospace 	: console;
 
 // font colors
 $base-color             : #2e2e2e; // text color on body and content
-$primary-color          : #2fa3e0; // text color on primary elements
-$secondary-color        : #006ba6; // text color on secondary elements
-$third-color        	: #e1e1e1; // text color on secondary elements
+$primary-color          : #aa8bbe; // text color on primary elements
+$secondary-color        : #2fa3e0; // text color on secondary elements
+$tertiary-color        	: #766346; // text color on tertiary elements
 $error-color			: #e55928;
 
 // backgrounds
