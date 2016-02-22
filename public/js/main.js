@@ -1,20 +1,41 @@
 /* main */
-var decal = 0;
+var addNavigationBtn = function(marginLeft, limit){
+	var limit = limit-446;
+	limit = "-"+limit+"px";
+	if(marginLeft=="0px"){
+		console.log("first");
+	}
+	console.log(marginLeft+" "+limit);
+	if(marginLeft==limit){
+		console.log("last");
+	}
+}
+var decal = 0,
+	targetForm = "",
+	formWidth = "",
+	computedStyle = "";
 var registrationStepByStep = {
-	containerForm: ".form-track",
-	nbFieldset : 4,
+	containerForm: "#form-track",
+	nbFieldset : 5,
 	fieldsetWidth : 648,
 	init : function(){
-		var containerForm = document.querySelectorAll(this.containerForm);
-		for (var i = 0; i < containerForm.length; i++) {
-			$("fieldset").css("width", this.fieldsetWidth);
-		  containerForm[i].style.width = this.nbFieldset*this.fieldsetWidth+"px";
-		}
+		targetForm = document.querySelector(this.containerForm);
+		$("fieldset").css("width", this.fieldsetWidth);
+		//console.log(this.containerForm);
+		formWidth = this.nbFieldset*this.fieldsetWidth;
+		targetForm.style.width = formWidth+"px";
+		computedStyle = getComputedStyle(targetForm) || targetForm.currentStyle;
+		addNavigationBtn(computedStyle.marginLeft, formWidth);
 	},
 	nextStep : function(){
+		decal = decal - this.fieldsetWidth;
+		targetForm.style.marginLeft = decal+"px";
+		setTimeout(function(){ addNavigationBtn(computedStyle.marginLeft, formWidth); },1000)
+	},
+	prevStep : function(){
 		decal = decal + this.fieldsetWidth;
-		var myForm = document.querySelectorAll(this.containerForm);
-		myForm[0].style.margin = "0 0 0 -"+decal+"px";
+		targetForm.style.marginLeft = decal+"px";
+		addNavigationBtn(computedStyle.marginLeft, formWidth);
 	}
 };
 
@@ -49,7 +70,7 @@ $(function(){
 		$(".hidden").hide();
         $(".hidden").eq(formIndex).show("normal", function(){
         	if(formIndex==1){
-        		var fieldSetWidth = $(".form-track").outerWidth();
+        		var fieldSetWidth = $("fieldset").outerWidth();
 	        	registrationStepByStep.fieldsetWidth = fieldSetWidth;
 	        	registrationStepByStep.init();
         	}
@@ -57,6 +78,9 @@ $(function(){
     });
     $(".next-step").on("click", function(){
     	registrationStepByStep.nextStep();
+    })
+    $(".prev-step").on("click", function(){
+    	registrationStepByStep.prevStep();
     })
 	
 	/* event scroll */

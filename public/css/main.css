@@ -1781,13 +1781,24 @@ section {
     section.form form {
       width: 100%;
       overflow-x: hidden; }
-      section.form form .form-track {
+      section.form form #form-track {
+        margin-left: 0;
         -webkit-transition: margin 0.5s ease-in;
         -moz-transition: margin 0.5s ease-in;
         -ms-transition: margin 0.5s ease-in;
         -o-transition: margin 0.5s ease-in;
         transition: margin 0.5s ease-in; }
-        section.form form .form-track fieldset {
+        section.form form #form-track label {
+          width: 30%;
+          display: inline-block; }
+        section.form form #form-track input[type=text], section.form form #form-track input[type=email] {
+          width: 70%;
+          display: inline-block; }
+        section.form form #form-track input[type=radio] + label, section.form form #form-track input[type=checkbox] + label {
+          width: auto; }
+        section.form form #form-track textarea {
+          width: 100%; }
+        section.form form #form-track fieldset {
           float: left;
           border: none;
           width: 100%;

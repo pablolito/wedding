@@ -30,21 +30,21 @@
 
 <div class="hidden">
 	<form action="/profile" method="post">
-		<div class="form-track">
+		<div id="form-track">
 			<fieldset>
 				<h3>Top ! Bienvenue parmi nous !</h3>
 				<h4>Dis-nous-en plus, qui es-tu ?</h4>
 				<p class="mb1">
 					<label for="firstName">Prénom</label><input type="text" name="firstName" id="firstName">
 				</p>
-				<p class="mb1"
+				<p class="mb1">
 					<label for="name">Nom</label><input type="text" name="name" id="name">
 				</p>
 				<p class="mb1">
-					<input type="checkbox" name="vegetarian" id="vegetarian"><label for="vegetarian">Je ne mange pas les animaux</label>
+					<label for="email">E-mail</label><input type="email" name="email" id="email" email>
 				</p>
 				<p class="mb1">
-					<label for="email">E-mail</label><input type="email" name="email" id="email" email>
+					<input type="checkbox" name="vegetarian" id="vegetarian"><label for="vegetarian">Je ne mange pas les animaux</label>
 				</p>
 				<p class="mb1">
 					Tu peux aussi enregistrer les personnes qui t'accompagnent, elles n'auront pas besoin de le faire de leur côté :
@@ -52,7 +52,6 @@
 				<p class="mb1">
 					<a href="">+ Enregistrer une autre personne +</a>
 				</p>
-				<input type="button" value="next" class="btn next-step">
 			</fieldset>
 			<!-- Additional guests (max 5). Expected fields : Prénom, Nom, Je ne mange pas les animaux -->
 			<fieldset>
@@ -72,7 +71,6 @@
 				<p class="mb1">
 					J'ai besoin de <input type="number" value="1" min="1" max="6" name="availableQuantity" id="availableQuantity"> place(s).
 				</p>
-				<input type="button" value="next" class="btn next-step">
 			</fieldset>
 			<fieldset>
 				<h3>Le soir, pour dormir</h3>
@@ -89,7 +87,6 @@
 				<p class="mb1">
 					<input type="radio" name="accomodation" id="accomodationNone"><label for="accomodationNone">Je n'ai rien, je veux bien des adresses dans les environs (gîtes, hôtels, chambres d'hôtes...)</label>
 				</p>
-				<input type="button" value="next" class="btn next-step">
 			</fieldset>
 			<fieldset>
 				<h3>Et le lendemain matin</h3>
@@ -97,16 +94,22 @@
 				<p class="mb1">
 					<input type="radio" name="dayAfter" id="dayAfterYes"><label for="dayAfterYes">Je mange avec vous, il faut en profiter jusqu'au bout !</label>
 				</p>
-				<p class="mb1">
+				<p class="mb2">
 					<input type="radio" name="dayAfter" id="dayAfterNo"><label for="dayAfterNo">Je ne serai pas des vôtres, mangez ma part !</label>
 				</p>
-				<hr>
+			</fieldset>
+			<fieldset>	
 				<h3>Quelque chose à ajouter ?</h3>
 				<h4>C'est le moment...</h4>
 				<p class="mb1">
-					<label for="message">Message</label><input type="text" name="message" id="message">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" rows="20"></textarea>
 				</p>
-				<input type="submit" value="Envoyer" class="btn">
 			</fieldset>
+		</div>
+		<div class="mod">
+			<input type="button" value="précédent" class="btn prev-step left">
+			<input type="button" value="suivant" class="btn next-step right">
+		</div>	
 	</form>
 </div>	

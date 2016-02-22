@@ -301,8 +301,23 @@ section{
 		form{
 			width: 100%;
 			overflow-x: hidden;
-			.form-track{
+			#form-track{
+				margin-left: 0;
 				@include transition(margin .5s ease-in);
+				label{
+					width: 30%;
+					display: inline-block;
+				}
+				input[type=text], input[type=email]{
+					width: 70%;
+					display: inline-block;
+				}
+				input[type=radio] + label, input[type=checkbox] + label {
+					width: auto;
+				}
+				textarea{
+					width: 100%;
+				}
 				fieldset{
 					float: left;
 					border: none;
