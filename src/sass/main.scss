@@ -47,12 +47,19 @@ ul, li{
 	width:200px;
 }
 
+.hidden{
+	display: none;
+}
+
 /* template mobile first */
 
 section{
 	background-color: #FFF;
 	&.bgd{
 		background-color: $primary-color;
+		h2{
+			color: #FFF;
+		}
 	}
 	&.bgd-texture{
 		position: relative;
@@ -276,6 +283,34 @@ section{
 			margin-right:5px;
 		}
 		color: $tertiary-color;
+	}
+	&.form{
+		h3{
+			font-family: $font-stack-tertiary;
+			font-size: 25px;
+			color: $primary-color;
+			margin-bottom:5px;
+		}
+		h4{
+			font-family: $font-stack-tertiary;
+			font-size: 20px;
+			color: $tertiary-color;
+			margin-bottom:5px;
+		}
+		color: $tertiary-color;
+		form{
+			width: 100%;
+			overflow-x: hidden;
+			.form-track{
+				@include transition(margin .5s ease-in);
+				fieldset{
+					float: left;
+					border: none;
+					width: 100%;
+					margin: 0;
+				}
+			}
+		}
 	}
 }
 
