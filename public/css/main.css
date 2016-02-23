@@ -1194,6 +1194,12 @@ svg {
 .mb5 {
   margin-bottom: 50px; }
 
+.mt1 {
+  margin-top: 10px; }
+
+.mt2 {
+  margin-top: 20px; }
+
 .mr05 {
   margin-right: 5px; }
 
@@ -1403,6 +1409,9 @@ input[type=text], input[type=password], input[type=email]{
 [type="checkbox"]:checked:focus + label:before,
 [type="checkbox"]:not(:checked):focus + label:before {
   border: 1px solid #aa8bbe; }
+
+[type="radio"] + label, [type="checkbox"] + label {
+  padding-top: 5px; }
 
 /* Material design field */
 textarea.custom-textarea {
@@ -1678,7 +1687,8 @@ section {
   background-color: #aa8bbe;
   border: 0;
   color: #FFF;
-  display: inline-block; }
+  display: inline-block;
+  cursor: pointer; }
 
 /* login page */
 .full-bgd {

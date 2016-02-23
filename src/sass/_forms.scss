@@ -51,6 +51,7 @@ input[type=text], input[type=password], input[type=email]{
 }
 
 /* Base for label styling */
+
 [type="radio"]:not(:checked),
 [type="radio"]:checked {
   position: absolute;
@@ -179,7 +180,9 @@ input[type=text], input[type=password], input[type=email]{
   border: 1px solid $primary-color;
 }
 
-
+[type="radio"] + label, [type="checkbox"] + label{
+  padding-top: 5px;
+}
 
 /* Material design field */
 

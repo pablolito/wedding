@@ -4,7 +4,16 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var registrationSchema = new Schema({
-  name: String
+  imComing: Boolean,
+  firstName: String,
+  lastName: String,
+  email: String,
+  vege: Boolean,
+  guest: [{
+    firstName: String,
+    lastName: String,
+    vege: String
+  }] 
 });
 
 // the schema is useless so far

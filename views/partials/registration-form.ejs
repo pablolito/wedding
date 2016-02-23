@@ -10,7 +10,7 @@
 	<form id="registrationFormNo" action="/profile" method="post">
 		<h3>Quel dommage ! On ne t'en veut pas, promis.</h3>
 		<h4 class="mb2">Dis-nous juste qui tu es... et laisse-nous un petit message !</h4>
-		
+		<input type="hidden" name="imComing" id="imComingNo" value="0">
 		<div class="field">
 			<label for="nameIfNo" class="field-label">Nom</label>
 			<input type="text" name="nameIfNo" id="nameIfNo" class="field-input">
@@ -37,6 +37,7 @@
 			<fieldset class="current">
 				<h3>Top ! Bienvenue parmi nous !</h3>
 				<h4 class="mb2">Dis-nous-en plus, qui es-tu ?</h4>
+				<input type="hidden" name="imComing" id="imComingYes" value="1">
 				<div class="field">
 					<label for="firstName" class="field-label">Prénom</label>
 					<input type="text" name="firstName" id="firstName" class="field-input">
@@ -56,7 +57,7 @@
 					Tu peux aussi enregistrer les personnes qui t'accompagnent, elles n'auront pas besoin de le faire de leur côté :
 				</div>
 				<div>
-					<span class="btn">+ Ajouter une personne +</a>
+					<span class="btn add-guest-js">+ Ajouter une personne +</a>
 				</div>
 			</fieldset>
 			<!-- Additional guests (max 5). Expected fields : Prénom, Nom, Je ne mange pas les animaux, Supprimer l'invité, Ajouter un autre invité -->

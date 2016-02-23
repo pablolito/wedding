@@ -1,4 +1,43 @@
 /* main */
+var decal = 0,
+	targetForm = "",
+	formWidth = "",
+	index = 0,
+	computedStyle = "",
+	cpt = 0,
+	rtime,
+	timeout = false,
+	delta = 200;
+
+
+function initMdeInput(){
+	$('.field-input').focus(function(){
+		$(this).parent().addClass('is-focused has-label');
+	})
+
+	$('.field-input').blur(function(){
+		$parent = $(this).parent();
+
+		if($(this).val() == ''){
+			$parent.removeClass('has-label');
+		}
+
+		$parent.removeClass('is-focused');
+	});
+}
+
+function resizeend() {
+    if (new Date() - rtime < delta) {
+        setTimeout(resizeend, delta);
+    } else {
+        timeout = false;
+		console.log($("#registrationFormYes").width());
+        registrationStepByStep.fieldsetWidth = $("#registrationFormYes").width();
+        registrationStepByStep.init();
+    }               
+}
+
+
 var displayNavigationBtn = function(index, targetForm, nbFieldset){
 	var parentForm = $(targetForm).parent(),
 		prevBtn = parentForm.find(".prev-step"),
@@ -22,11 +61,15 @@ var displayNavigationBtn = function(index, targetForm, nbFieldset){
 	}
 }
 
-var decal = 0,
-	targetForm = "",
-	formWidth = "",
-	index = 0,
-	computedStyle = "";
+
+var addGuest = function(){
+	cpt++;
+	var htmlGuestField = "<div class='field mt1'><label for='guestFirstName"+cpt+"' class='field-label'>Prénom</label><input type='text' name='guestFirstName"+cpt+"' id='guestFirstName"+cpt+"' class='field-input'></div><div class='field'><label for='guestName"+cpt+"' class='field-label'>Nom</label><input type='text' name='guestName"+cpt+"' id='guestName"+cpt+"' class='field-input'></div>";
+	$("fieldset.current").append(htmlGuestField);
+
+	
+}
+
 var registrationStepByStep = {
 	containerForm: "#form-track",
 	nbFieldset : 5,
@@ -37,6 +80,14 @@ var registrationStepByStep = {
 		formWidth = this.nbFieldset*this.fieldsetWidth;
 		targetForm.style.width = formWidth+"px";
 		displayNavigationBtn(index, this.containerForm, this.nbFieldset);
+		
+		// decal adaptation on resize
+		if(index!==0){
+			var newMarginLeftVal = -(this.fieldsetWidth*index);
+			targetForm.style.marginLeft = newMarginLeftVal+"px";
+			decal = newMarginLeftVal;
+		}
+
 	},
 	nextStep : function(){
 
@@ -88,6 +139,12 @@ $(function(){
 		}
 	});
 
+	$(".add-guest-js").on("click", function(){
+		//console.log("event add guest");
+		addGuest();
+		initMdeInput();
+	});
+
 
 	$('input:radio[name="goingBottom"]').change(function(){
 		var formIndex = $(this).val();
@@ -121,27 +178,18 @@ $(function(){
 
 	/* event resize */
 	$(window).resize(function(){
-		/*var fieldSetWidth = $("fieldset").outerWidth();
-			console.log(fieldSetWidth);
-	        registrationStepByStep.fieldsetWidth = fieldSetWidth;
-	        registrationStepByStep.init();*/
+	    rtime = new Date();
+	    if (timeout === false) {
+	        timeout = true;
+	        setTimeout(resizeend, delta);
+    	}
 	});
 
 	
-	/* Material design field */
-	$('.field-input').focus(function(){
-		$(this).parent().addClass('is-focused has-label');
-	})
+	/* Material design effect on field */
+	initMdeInput();
 
-	$('.field-input').blur(function(){
-		$parent = $(this).parent();
 
-		if($(this).val() == ''){
-			$parent.removeClass('has-label');
-		}
-
-		$parent.removeClass('is-focused');
-	});
 });
 
 	
