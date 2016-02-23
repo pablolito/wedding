@@ -1,18 +1,31 @@
 /* main */
-var addNavigationBtn = function(marginLeft, limit){
-	var limit = limit-446;
-	limit = "-"+limit+"px";
-	if(marginLeft=="0px"){
-		console.log("first");
-	}
-	console.log(marginLeft+" "+limit);
-	if(marginLeft==limit){
-		console.log("last");
+var displayNavigationBtn = function(index, targetForm, nbFieldset){
+	var parentForm = $(targetForm).parent(),
+		prevBtn = parentForm.find(".prev-step"),
+		nextBtn = parentForm.find(".next-step"),
+		subBtn = parentForm.find("input[type=submit]");
+	if(index==0){
+		prevBtn.hide();
+		subBtn.hide();
+		setTimeout(function(){
+			$("#activationForm").fadeIn();
+		}, 3000);
+		
+	}else if(index==nbFieldset-1){
+		nextBtn.hide();
+		subBtn.show();
+	}else{
+		nextBtn.show();
+		prevBtn.show();
+		subBtn.hide();
+		$("#activationForm").hide();
 	}
 }
+
 var decal = 0,
 	targetForm = "",
 	formWidth = "",
+	index = 0,
 	computedStyle = "";
 var registrationStepByStep = {
 	containerForm: "#form-track",
@@ -21,21 +34,32 @@ var registrationStepByStep = {
 	init : function(){
 		targetForm = document.querySelector(this.containerForm);
 		$("fieldset").css("width", this.fieldsetWidth);
-		//console.log(this.containerForm);
 		formWidth = this.nbFieldset*this.fieldsetWidth;
 		targetForm.style.width = formWidth+"px";
-		computedStyle = getComputedStyle(targetForm) || targetForm.currentStyle;
-		addNavigationBtn(computedStyle.marginLeft, formWidth);
+		displayNavigationBtn(index, this.containerForm, this.nbFieldset);
 	},
 	nextStep : function(){
+
 		decal = decal - this.fieldsetWidth;
 		targetForm.style.marginLeft = decal+"px";
-		setTimeout(function(){ addNavigationBtn(computedStyle.marginLeft, formWidth); },1000)
+		index++;
+
+		$(this.containerForm+" fieldset").removeClass("current");
+		$(this.containerForm+" fieldset:eq("+index+")").addClass("current");
+
+		displayNavigationBtn(index, this.containerForm, this.nbFieldset);
+		
 	},
 	prevStep : function(){
+		
 		decal = decal + this.fieldsetWidth;
 		targetForm.style.marginLeft = decal+"px";
-		addNavigationBtn(computedStyle.marginLeft, formWidth);
+		index--;
+		$(this.containerForm).find("fieldset").removeClass("current");
+		$(this.containerForm).find("fieldset:eq("+index+")").addClass("current");
+
+		displayNavigationBtn(index, this.containerForm, this.nbFieldset);
+
 	}
 };
 
@@ -93,6 +117,14 @@ $(function(){
 			$header.removeClass("fixed");
 			$body.css("padding-top", 0);
 		}
+	});
+
+	/* event resize */
+	$(window).resize(function(){
+		/*var fieldSetWidth = $("fieldset").outerWidth();
+			console.log(fieldSetWidth);
+	        registrationStepByStep.fieldsetWidth = fieldSetWidth;
+	        registrationStepByStep.init();*/
 	});
 
 	

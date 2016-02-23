@@ -1340,16 +1340,82 @@ input[type=text], input[type=password], input[type=email]{
 [type="radio"]:not(:checked):focus + label:before {
   border: 1px solid #aa8bbe; }
 
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px; }
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer; }
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3); }
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  font-size: 20px;
+  line-height: 0.8;
+  color: #aa8bbe;
+  transition: all .2s; }
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0); }
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1); }
+
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd; }
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999; }
+
+[type="checkbox"]:disabled + label {
+  color: #aaa; }
+
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 1px solid #aa8bbe; }
+
 /* Material design field */
-textarea {
+textarea.custom-textarea {
+  border: 2px solid #c0af95;
+  width: 100%;
   min-height: 30px;
   resize: none;
   overflow-y: hidden; }
 
 .field {
   position: relative;
-  height: 72px;
-  padding: 16px 0 8px 0; }
+  height: 50px;
+  margin-bottom: 10px; }
 
 .field-label {
   position: relative;
@@ -1365,7 +1431,7 @@ textarea {
 .field-input {
   position: relative;
   display: block;
-  width: 50%;
+  width: 100%;
   height: 32px;
   padding: 8px 0;
   line-height: 16px;
@@ -1379,9 +1445,9 @@ textarea {
 .field::after, .field::before {
   content: '';
   height: 2px;
-  width: 50%;
+  width: 100%;
   position: absolute;
-  bottom: 6px;
+  bottom: 0px;
   left: 0;
   background-color: #c0af95; }
 
@@ -1718,7 +1784,8 @@ section {
     font-size: 40px;
     color: #aa8bbe;
     text-transform: uppercase;
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 20px; }
   section h3 {
     font-family: "Amatic-Regular", Helvetica, sans-serif;
     font-size: 20px;
@@ -1761,6 +1828,10 @@ section {
       -o-transform: rotate(-10deg);
       transform: rotate(-10deg);
       display: inline-block; }
+  section .travel {
+    background: url(../img/bgd-travel.png) right bottom no-repeat;
+    background-size: 50% auto;
+    min-height: 450px; }
   section.prog {
     color: #766346; }
     section.prog .icon {
@@ -1776,11 +1847,18 @@ section {
     section.form h4 {
       font-family: "Amatic-Regular", Helvetica, sans-serif;
       font-size: 20px;
-      color: #766346;
-      margin-bottom: 5px; }
+      color: #766346; }
     section.form form {
       width: 100%;
       overflow-x: hidden; }
+      section.form form .btn-area {
+        margin-top: 40px; }
+      section.form form .textarea {
+        margin-top: 40px; }
+        section.form form .textarea p {
+          color: #c0af95;
+          font-size: 16px;
+          margin-bottom: 20px; }
       section.form form #form-track {
         margin-left: 0;
         -webkit-transition: margin 0.5s ease-in;
@@ -1788,21 +1866,18 @@ section {
         -ms-transition: margin 0.5s ease-in;
         -o-transition: margin 0.5s ease-in;
         transition: margin 0.5s ease-in; }
-        section.form form #form-track label {
-          width: 30%;
-          display: inline-block; }
-        section.form form #form-track input[type=text], section.form form #form-track input[type=email] {
-          width: 70%;
-          display: inline-block; }
         section.form form #form-track input[type=radio] + label, section.form form #form-track input[type=checkbox] + label {
           width: auto; }
+        section.form form #form-track label {
+          display: inline-block; }
         section.form form #form-track textarea {
           width: 100%; }
         section.form form #form-track fieldset {
           float: left;
           border: none;
           width: 100%;
-          margin: 0; }
+          margin: 0;
+          padding: 0; }
 
 @media (min-width: 768px) {
   section {
