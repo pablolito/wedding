@@ -31,9 +31,10 @@ function resizeend() {
         setTimeout(resizeend, delta);
     } else {
         timeout = false;
-		console.log($("#registrationFormYes").width());
+		console.log($(".prog .cnt-center").width());
         registrationStepByStep.fieldsetWidth = $("#registrationFormYes").width();
         registrationStepByStep.init();
+        mapPosition = $("#map").offset();
     }               
 }
 
@@ -114,7 +115,70 @@ var registrationStepByStep = {
 	}
 };
 
+
+/* google map init */
+var map,
+bezardiereCoord = {lat: 47.414042, lng: 0.876497},
+mairieCoord = {lat: 47.404745, lng: 0.710967},
+centerCoord = {lat: 47.4092033, lng: 0.7890192},
+contentString1 = '<span class="txtb">Mairie annexe de Sainte Radegonde</span>,<br /> Place Alexandre Rousseau, Tours',
+contentString2 = '<span class="txtb">Domaine La Bézardière</span>,<br />Rue de la Bézardière, 37210 Noizay';
+
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+	center: centerCoord,
+	zoom: 12,
+	scrollwheel: false
+	});
+
+	var marker1 = new google.maps.Marker({
+	    position: mairieCoord,
+	    map: map,
+	    icon: {
+      		path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+      		scale: 5,
+      		strokeColor: "#aa8bbe"
+    	},
+	    title: 'La mairie de Sainte-Radegonde !!'
+  	});
+  	marker1.addListener('click', function() {
+    	infowindow1.open(map, marker1);
+  	});
+  	document.getElementById("location1").onclick=function() {
+    	infowindow1.open(map, marker1);
+    	//var mapPosition = document.getElementById('map').offsetTop;
+    	document.body.scrollTop = mapPosition.top;
+  	};
+
+  	var marker2 = new google.maps.Marker({
+	    position: bezardiereCoord,
+	    map: map,
+	    title: 'La bézardière !!',
+	    icon: {
+      		path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+      		scale: 5,
+      		strokeColor: "#aa8bbe"
+    	}
+  	});
+  	marker2.addListener('click', function() {
+    	infowindow2.open(map, marker2);
+  	});
+  	document.getElementById("location2").onclick=function() {
+    	infowindow2.open(map, marker2);
+    	document.body.scrollTop = mapPosition.top;
+  	};
+
+  	var infowindow1 = new google.maps.InfoWindow({
+    	content: contentString1
+	});
+	var infowindow2 = new google.maps.InfoWindow({
+    	content: contentString2
+	});
+}
+
 $(function(){
+
+
 	var $header = $("header"),
 	$mainNavOpener = $(".open-nav-js"),
 	$body = $("body"),
@@ -139,6 +203,7 @@ $(function(){
 		}
 	});
 
+	/* event form */
 	$(".add-guest-js").on("click", function(){
 		//console.log("event add guest");
 		addGuest();
@@ -159,10 +224,13 @@ $(function(){
     });
     $(".next-step").on("click", function(){
     	registrationStepByStep.nextStep();
-    })
+    });
     $(".prev-step").on("click", function(){
     	registrationStepByStep.prevStep();
-    })
+    });
+
+    /* google map event */
+    mapPosition = $("#map").offset();
 	
 	/* event scroll */
 	$(window).scroll(function(e) {

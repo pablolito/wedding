@@ -8,6 +8,7 @@
 <div class="main">
 	<header>
 		<% include partials/header %>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1VpPzzi9mui5ik0xJzrceT0KSKALz3aY&callback=initMap" type="text/javascript"></script>
 	</header>
 	<section id="section1" class="push-bride-groom">
 		<div class="cnt-center">
@@ -37,12 +38,12 @@
 					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb2">
 						<h3><span class="icon icon-library"></span>Mairie : 14h30</h3>
 						<p class="mb1">Rendez-vous sous les tilleuls de la Mairie de Sainte-Radegonde (Tours nord)</p>
-						<p><span class="btn">Localiser sur le plan</span></p>
+						<p><span class="btn" id="location1">Localiser sur le plan</span></p>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb2">
 						<h3><span class="icon icon-glass"></span>Apéro : 18h30</h3>
 						<p class="mb1">Rendez-vous au domaine de la Bézardière pour un gros apéro !</p>
-						<p><span class="btn">Localiser sur le plan</span></p>
+						<p><span class="btn" id="location2">Localiser sur le plan</span></p>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb2">
 						<h3><span class="icon icon-spoon-knife"></span>A table : 20h</h3>
@@ -64,6 +65,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="map"></div>
 	</section>
 	<section id="section3" class="bgd">
 		<div class="cnt-center">
