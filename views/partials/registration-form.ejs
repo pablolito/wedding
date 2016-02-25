@@ -39,12 +39,12 @@
 				<h4 class="mb2">Dis-nous-en plus, qui es-tu ?</h4>
 				<input type="hidden" name="imComing" id="imComingYes" value="1">
 				<div class="field">
-					<label for="firstName" class="field-label">Prénom</label>
-					<input type="text" name="firstName" id="firstName" class="field-input">
+					<label for="firstName" class="field-label">Prénom *</label>
+					<input type="text" name="firstName" id="firstName" class="field-input required">
 				</div>
 				<div class="field">
-					<label for="name" class="field-label">Nom</label>
-					<input type="text" name="name" id="name" class="field-input">
+					<label for="name" class="field-label">Nom *</label>
+					<input type="text" name="lastName" id="lastName" class="field-input required">
 				</div>
 				<div class="field">
 					<label for="email" class="field-label">E-mail</label>
@@ -56,25 +56,22 @@
 				<div class="mb2">
 					Tu peux aussi enregistrer les personnes qui t'accompagnent, elles n'auront pas besoin de le faire de leur côté :
 				</div>
-				<div>
+				<div class="guest-area">
 					<span class="btn add-guest-js">+ Ajouter une personne +</a>
 				</div>
 			</fieldset>
-			<!-- Additional guests (max 5). Expected fields : Prénom, Nom, Je ne mange pas les animaux, Supprimer l'invité, Ajouter un autre invité -->
 			<fieldset>
 				<h3>Entre la mairie et le domaine de la Bézardière</h3>
 				<h4 class="mb2">il y a quelques kilomètres...</h4>
 				<div class="mb1">
 					<input type="radio" name="transportation" id="transportationYes"><label for="transportationYes">Pas de soucis, j'ai une voiture / un camion / un camping-car / un vélo électrique</label>
 				</div>
-				<!-- Displays on selecting the previous radio button only -->
 				<div class="mb1">
 					Si quelqu'un à besoin d'être transporté, il me reste <input type="number" value="0" min="0" max="7" name="availableQuantity" id="availableQuantity"> place(s).
 				</div>
 				<div class="mb1">
 					<input type="radio" name="transportation" id="transportationNo"><label for="transportationNo">Aïe, j'avais pas prévu ça, une bonne âme pour me / nous transporter ?</label>
 				</div>
-				<!-- Displays on selecting the previous radio button only -->
 				<div class="mb1">
 					J'ai besoin de <input type="number" value="1" min="1" max="6" name="availableQuantity" id="availableQuantity"> place(s).
 				</div>
@@ -117,7 +114,7 @@
 		<div class="mod btn-area">
 			<input type="button" value="précédent" class="btn prev-step left">
 			<input type="button" value="suivant" class="btn next-step right">
-			<input type="submit" value="envoyer" class="btn next-step right">
+			<input type="submit" value="envoyer" class="btn right">
 		</div>	
 	</form>
 </div>	

@@ -32,8 +32,10 @@ function resizeend() {
     } else {
         timeout = false;
 		console.log($(".prog .cnt-center").width());
-        registrationStepByStep.fieldsetWidth = $("#registrationFormYes").width();
-        registrationStepByStep.init();
+        if($('input:radio[name="goingBottom"]').is(":checked")){
+        	registrationStepByStep.fieldsetWidth = $("#registrationFormYes").width();
+        	registrationStepByStep.init();
+        }
         mapPosition = $("#map").offset();
     }               
 }
@@ -62,15 +64,46 @@ var displayNavigationBtn = function(index, targetForm, nbFieldset){
 	}
 }
 
+var checkValideStep = function(){
+	var isValid = true;
+	$(".error").removeClass("error");
+	$("fieldset.current .required").each(function(e){
+		var $this = $(this);
+		if($this.val()==""){
+			$this.closest(".field").addClass("error");
+			isValid = false;
+		}
+	});
+	return isValid;
+}
+
+var liveFieldRequired = function(){
+	$("input.required").on("keyup", function(){
+    	if( $(this).val()=="" ){
+    		$(this).closest(".field").addClass("error");
+    	}else{
+    		$(this).closest(".field").removeClass("error");
+	}
+	});
+}
+
 
 var addGuest = function(){
 	cpt++;
-	var htmlGuestField = "<div class='field mt1'><label for='guestFirstName"+cpt+"' class='field-label'>Prénom</label><input type='text' name='guestFirstName"+cpt+"' id='guestFirstName"+cpt+"' class='field-input'></div><div class='field'><label for='guestName"+cpt+"' class='field-label'>Nom</label><input type='text' name='guestName"+cpt+"' id='guestName"+cpt+"' class='field-input'></div>";
-	$("fieldset.current").append(htmlGuestField);
-
-	
+	var htmlGuestField = "<div class='guestGrp'>";
+	htmlGuestField += "<div class='field mt1'><label for='guestFirstName"+cpt+"' class='field-label'>Prénom *</label><input type='text' name='guestFirstName"+cpt+"' id='guestFirstName"+cpt+"' class='field-input required'></div>";
+	htmlGuestField += "<div class='field'><label for='guestLastName"+cpt+"' class='field-label'>Nom *</label><input type='text' name='guestLastName"+cpt+"' id='guestLastName"+cpt+"' class='field-input required'></div>"
+	htmlGuestField += "<div class='mb4'><input type='checkbox' name='vegetarian"+cpt+"' id='vegetarian"+cpt+"''><label for='vegetarian"+cpt+"''>Je ne mange pas les animaux</label></div>";
+	htmlGuestField += "<div class='remove-item-js icon icon-cross'></div>";
+	htmlGuestField += "</div>";
+	$(".guest-area").prepend(htmlGuestField);
+	liveFieldRequired();
+	$(".remove-item-js").on("click", function(){
+		$(this).closest(".guestGrp").remove();
+	});
 }
 
+/* registration form step by step */
 var registrationStepByStep = {
 	containerForm: "#form-track",
 	nbFieldset : 5,
@@ -176,9 +209,9 @@ function initMap() {
 	});
 }
 
+
+
 $(function(){
-
-
 	var $header = $("header"),
 	$mainNavOpener = $(".open-nav-js"),
 	$body = $("body"),
@@ -210,6 +243,13 @@ $(function(){
 		initMdeInput();
 	});
 
+	$(".goto-form-js").on("click", function(){
+		var posForm = $("section.form").offset();
+		posForm = posForm.top;
+		$('html, body').animate({
+				scrollTop : posForm
+		}, "slow");
+	});
 
 	$('input:radio[name="goingBottom"]').change(function(){
 		var formIndex = $(this).val();
@@ -223,13 +263,19 @@ $(function(){
         });
     });
     $(".next-step").on("click", function(){
-    	registrationStepByStep.nextStep();
+    	if(checkValideStep()){
+    		registrationStepByStep.nextStep();
+    	}
     });
     $(".prev-step").on("click", function(){
     	registrationStepByStep.prevStep();
     });
 
-    /* google map event */
+    
+    liveFieldRequired();
+
+
+    /* shit */
     mapPosition = $("#map").offset();
 	
 	/* event scroll */

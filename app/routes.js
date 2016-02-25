@@ -61,20 +61,36 @@ module.exports = function(app, passport) {
 
 	// process the inscription form
 	app.post('/profile', function(req, res) {
-		var titlePage = "MMA se marient ! - Welcome Dude";
-		console.log(Registration);
-	    var userName = req.body.username;
+		var titlePage = "MMA se marient ! - Welcome Dude",
+		imComing = req.body.imComing,
+		firstName = req.body.firstName,
+		lastName = req.body.lastName,
+		email = req.body.email,
+		vege = req.body.vegetarian,
+		guestFirstName1 = req.body.guestFirstName1,
+		guestLastName1 = req.body.guestLastName1,
+		vege1 = req.body.vegetarien1;
 
 	    var addUser = new Registration({
-  			name: userName
+			imComing: imComing,
+			firstName: firstName,
+			lastName: lastName,
+			email: email,
+			vege: vege,
+			guest: [{
+			   firstName: guestFirstName1,
+			   lastName: guestLastName1,
+			   vege: vege1
+			}] 
   		});
 
   		addUser.save(function(err) {
 		  if (err) throw err;
 		  console.log('User saved successfully!');
 		});
-		res.render('profile.ejs', { user : req.user, // get the user out of session and pass to template
-			titlePage: titlePage });
+		
+		res.render('profile.ejs', { user : req.user,
+		titlePage: titlePage });
 	    
 	});
 

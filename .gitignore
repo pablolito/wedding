@@ -13,8 +13,6 @@ pids
 logs
 results
 
+config/*
 npm-debug.log
 node_modules
-
-config/secretDatabase.js
-config/secretAuth.js

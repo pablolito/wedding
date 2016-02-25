@@ -170,7 +170,7 @@ header{
 		}
 		li{
 			font-family: $font-stack-tertiary;
-			font-size: 16px;
+			font-size: 25px;
 			text-align: right;
 			margin-bottom: 5px;
 			a{
@@ -265,18 +265,22 @@ section{
 		}
 	}
 	.going-area{
-		padding-top: 40px;
+		padding-top: 20px;
 		text-align: center;
 		padding-left: 5%;
 		p{
 			margin-bottom:10px;
-		}
-		label{
 			color: #FFF;
-			font-size: 25px;
+			font-size: 20px;
 			font-family: $font-stack-tertiary;
-			@include transform(rotate(-10deg));
 			display: inline-block;
+			span{
+				@include border-radius(5px);
+				border: 2px solid #FFF;
+				padding: 5px;
+				display: block;
+				cursor: pointer;
+			}
 		}
 	}
 	#map{
@@ -296,6 +300,39 @@ section{
 		}
 		color: $tertiary-color;
 	}
+	&.temoins{
+		h3{
+			color: #FFF;
+			font-size: 25px;
+		}
+		.row{
+			margin: 0 0 20px 0;
+			text-align: center;
+			> div{
+				&:first-child{
+					margin-bottom: 20px;
+				}
+			}
+		}
+		.inbl{
+			vertical-align: middle;
+		}
+		.badge{
+			width:200px;
+			height: 200px;
+			@include border-radius(200px);
+			overflow: hidden;
+			background-color: #FFF;
+			margin-right: 20px;
+			img{
+				width: 100%;
+				height: auto;
+			}
+		}
+		.desc{
+
+		}
+	}
 	&.form{
 		h3{
 			font-family: $font-stack-tertiary;
@@ -309,6 +346,20 @@ section{
 			color: $tertiary-color;
 		}
 		color: $tertiary-color;
+		.guestGrp{
+			padding: 10px;
+			border: 1px dashed #ccc;
+			margin-bottom: 20px;
+			position: relative;
+			.icon{
+				display: inline-block;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				z-index: 5;
+				cursor: pointer;
+			}
+		}
 		form{
 			width: 100%;
 			overflow-x: hidden;

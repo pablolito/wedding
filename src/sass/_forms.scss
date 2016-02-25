@@ -200,6 +200,14 @@ textarea{
   position: relative;
   height: 50px;
   margin-bottom: 10px;
+  &.error{
+    &:before, &:after{
+      background-color: $error-color;
+    }
+    label{
+      color: $error-color;
+    }
+  }
 }
 
 
@@ -255,10 +263,8 @@ textarea{
 
 .is-focused .field-label{
   color: $primary-color;
-
 }
 
 .field.is-focused::after{
   transform: scaleX(1);
-
 }

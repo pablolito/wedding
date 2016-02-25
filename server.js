@@ -3,6 +3,7 @@
 // set up ======================================================================
 // get all the tools we need
 var express  = require('express');
+var dom      = require('domain').create();
 var app      = express();
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
@@ -13,7 +14,18 @@ var bodyParser = require('body-parser');
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
+
+// connect to our database
+/*dom.on('error', function(er){
+	console.log("error with db");
+})
+dom.run(function(){
+
+});*/
+
+mongoose.connect(configDB.url);
+
+
 
 require('./config/passport')(passport); // pass passport for configuration
 

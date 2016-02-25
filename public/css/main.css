@@ -388,7 +388,7 @@ th {
     display: table; }
   .container:after {
     clear: both; }
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     .container {
       width: 750px; } }
   @media (min-width: 992px) {
@@ -580,7 +580,7 @@ th {
 .col-xs-offset-12 {
   margin-left: 100%; }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left; }
   .col-sm-1 {
@@ -1421,6 +1421,10 @@ textarea.custom-textarea {
   position: relative;
   height: 50px;
   margin-bottom: 10px; }
+  .field.error:before, .field.error:after {
+    background-color: #e55928; }
+  .field.error label {
+    color: #e55928; }
 
 .field-label {
   position: relative;
@@ -1747,7 +1751,7 @@ header {
       display: block; }
     header nav li {
       font-family: "Amatic-Regular", Helvetica, sans-serif;
-      font-size: 16px;
+      font-size: 25px;
       text-align: right;
       margin-bottom: 5px; }
       header nav li a {
@@ -1759,7 +1763,7 @@ header {
         header nav li a:hover {
           color: #aa8bbe; }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .hide-on-desktop {
     display: none; }
   header .logo {
@@ -1819,21 +1823,23 @@ section {
       font-size: 72px;
       text-transform: none; }
   section .going-area {
-    padding-top: 40px;
+    padding-top: 20px;
     text-align: center;
     padding-left: 5%; }
     section .going-area p {
-      margin-bottom: 10px; }
-    section .going-area label {
+      margin-bottom: 10px;
       color: #FFF;
-      font-size: 25px;
+      font-size: 20px;
       font-family: "Amatic-Regular", Helvetica, sans-serif;
-      -webkit-transform: rotate(-10deg);
-      -moz-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
-      -o-transform: rotate(-10deg);
-      transform: rotate(-10deg);
       display: inline-block; }
+      section .going-area p span {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 2px solid #FFF;
+        padding: 5px;
+        display: block;
+        cursor: pointer; }
   section #map {
     width: 100%;
     height: 400px; }
@@ -1847,6 +1853,28 @@ section {
     section.prog .icon {
       font-size: 20px;
       margin-right: 5px; }
+  section.temoins h3 {
+    color: #FFF;
+    font-size: 25px; }
+  section.temoins .row {
+    margin: 0 0 20px 0;
+    text-align: center; }
+    section.temoins .row > div:first-child {
+      margin-bottom: 20px; }
+  section.temoins .inbl {
+    vertical-align: middle; }
+  section.temoins .badge {
+    width: 200px;
+    height: 200px;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    overflow: hidden;
+    background-color: #FFF;
+    margin-right: 20px; }
+    section.temoins .badge img {
+      width: 100%;
+      height: auto; }
   section.form {
     color: #766346; }
     section.form h3 {
@@ -1858,6 +1886,18 @@ section {
       font-family: "Amatic-Regular", Helvetica, sans-serif;
       font-size: 20px;
       color: #766346; }
+    section.form .guestGrp {
+      padding: 10px;
+      border: 1px dashed #ccc;
+      margin-bottom: 20px;
+      position: relative; }
+      section.form .guestGrp .icon {
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 5;
+        cursor: pointer; }
     section.form form {
       width: 100%;
       overflow-x: hidden; }
@@ -1889,7 +1929,7 @@ section {
           margin: 0;
           padding: 0; }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   section {
     padding: 40px 0; }
     section h2 {
