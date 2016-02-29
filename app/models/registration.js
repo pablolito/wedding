@@ -12,8 +12,14 @@ var registrationSchema = new Schema({
   guest: [{
     firstName: String,
     lastName: String,
-    vege: String
-  }] 
+    vege: Boolean
+  }],
+  transportation : String,
+  availableQuantity: String,
+  neededQuantity: String,
+  accomodation: String,
+  dayAfter: String,
+  message: String
 });
 
 // the schema is useless so far

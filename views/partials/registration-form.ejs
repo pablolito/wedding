@@ -18,7 +18,7 @@
 
 		<div class="field">
 			<label for="emailIfNo" class="field-label">E-mail</label>
-			<input type="email" name="emailIfNo" id="emailIfNo" class="field-input" email>
+			<input type="email" name="emailIfNo" id="emailIfNo" class="field-input">
 		</div>
 
 		<div class="textarea">
@@ -48,7 +48,7 @@
 				</div>
 				<div class="field">
 					<label for="email" class="field-label">E-mail</label>
-					<input type="email" name="email" id="email" email class="field-input">
+					<input type="email" name="email" id="email" class="field-input email">
 				</div>
 				<div class="mb4">
 					<input type="checkbox" name="vegetarian" id="vegetarian"><label for="vegetarian">Je ne mange pas les animaux</label>
@@ -58,48 +58,64 @@
 				</div>
 				<div class="guest-area">
 					<span class="btn add-guest-js">+ Ajouter une personne +</a>
+					<input type="hidden" name="nbGuest" id="nbGuest" value="0">
+				</div>
+				<div class="mod btn-area">
+					<input type="button" value="suivant" class="btn next-step right">
 				</div>
 			</fieldset>
 			<fieldset>
 				<h3>Entre la mairie et le domaine de la Bézardière</h3>
 				<h4 class="mb2">il y a quelques kilomètres...</h4>
 				<div class="mb1">
-					<input type="radio" name="transportation" id="transportationYes"><label for="transportationYes">Pas de soucis, j'ai une voiture / un camion / un camping-car / un vélo électrique</label>
+					<input type="radio" name="transportation" id="transportationYes" value="Transportation yes"><label for="transportationYes">Pas de soucis, j'ai une voiture / un camion / un camping-car / un vélo électrique</label>
 				</div>
 				<div class="mb1">
 					Si quelqu'un à besoin d'être transporté, il me reste <input type="number" value="0" min="0" max="7" name="availableQuantity" id="availableQuantity"> place(s).
 				</div>
 				<div class="mb1">
-					<input type="radio" name="transportation" id="transportationNo"><label for="transportationNo">Aïe, j'avais pas prévu ça, une bonne âme pour me / nous transporter ?</label>
+					<input type="radio" name="transportation" id="transportationNo" value="Transportation no"><label for="transportationNo">Aïe, j'avais pas prévu ça, une bonne âme pour me / nous transporter ?</label>
 				</div>
 				<div class="mb1">
-					J'ai besoin de <input type="number" value="1" min="1" max="6" name="availableQuantity" id="availableQuantity"> place(s).
+					J'ai besoin de <input type="number" value="1" min="1" max="6" name="neededQuantity" id="neededQuantity"> place(s).
+				</div>
+				<div class="mod btn-area">
+					<input type="button" value="précédent" class="btn prev-step left">
+					<input type="button" value="suivant" class="btn next-step right">
 				</div>
 			</fieldset>
 			<fieldset>
 				<h3>Le soir, pour dormir</h3>
 				<h4 class="mb2">Au cas où...</h4>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationRoots"><label for="accomodationRoots">Je plante ma tente (c'est rustique mais c'est gratuit !)</label>
+					<input type="radio" name="accomodation" id="accomodationRoots" value="Accomodation roots"><label for="accomodationRoots">Je plante ma tente (c'est rustique mais c'est gratuit !)</label>
 				</div>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationRV"><label for="accomodationRV">J'ai mon camion / mon camping-car (il y a ce qu'il faut sur le domaine et c'est aussi gratuit !)</label>
+					<input type="radio" name="accomodation" id="accomodationRV" value="Accomodation RV"><label for="accomodationRV">J'ai mon camion / mon camping-car (il y a ce qu'il faut sur le domaine et c'est aussi gratuit !)</label>
 				</div>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationOK"><label for="accomodationOK">J'ai déjà une chambre quelque part</label>
+					<input type="radio" name="accomodation" id="accomodationOK" value="Accomodation OK"><label for="accomodationOK">J'ai déjà une chambre quelque part</label>
 				</div>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationNone"><label for="accomodationNone">Je n'ai rien, je veux bien des adresses dans les environs (gîtes, hôtels, chambres d'hôtes...)</label>
+					<input type="radio" name="accomodation" id="accomodationNone" value="Accomodation none"><label for="accomodationNone">Je n'ai rien, je veux bien des adresses dans les environs (gîtes, hôtels, chambres d'hôtes...)</label>
+				</div>
+				<div class="mod btn-area">
+					<input type="button" value="précédent" class="btn prev-step left">
+					<input type="button" value="suivant" class="btn next-step right">
 				</div>
 			</fieldset>
 			<fieldset>
 				<h3>Et le lendemain matin</h3>
 				<h4 class="mb2">euh... midi ?</h4>
 				<div class="mb1">
-					<input type="radio" name="dayAfter" id="dayAfterYes"><label for="dayAfterYes">Je mange avec vous, il faut en profiter jusqu'au bout !</label>
+					<input type="radio" name="dayAfter" id="dayAfterYes" value="Day after Yes"><label for="dayAfterYes">Je mange avec vous, il faut en profiter jusqu'au bout !</label>
 				</div>
 				<div class="mb2">
-					<input type="radio" name="dayAfter" id="dayAfterNo"><label for="dayAfterNo">Je ne serai pas des vôtres, mangez ma part !</label>
+					<input type="radio" name="dayAfter" id="dayAfterNo" value="Day after No"><label for="dayAfterNo">Je ne serai pas des vôtres, mangez ma part !</label>
+				</div>
+				<div class="mod btn-area">
+					<input type="button" value="précédent" class="btn prev-step left">
+					<input type="button" value="suivant" class="btn next-step right">
 				</div>
 			</fieldset>
 			<fieldset>	
@@ -109,12 +125,11 @@
 					<label for="message">Message</label>
 					<textarea name="message" id="message" rows="10" class="custom-textarea"></textarea>
 				</div>
+				<div class="mod btn-area">
+					<input type="button" value="précédent" class="btn prev-step left">
+					<input type="submit" value="envoyer" class="btn right">
+				</div>
 			</fieldset>
-		</div>
-		<div class="mod btn-area">
-			<input type="button" value="précédent" class="btn prev-step left">
-			<input type="button" value="suivant" class="btn next-step right">
-			<input type="submit" value="envoyer" class="btn right">
 		</div>	
 	</form>
 </div>	

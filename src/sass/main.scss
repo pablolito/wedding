@@ -56,7 +56,8 @@ ul, li{
 section{
 	background-color: #FFF;
 	&.bgd{
-		background-color: $primary-color;
+		//background-color: $primary-color;
+		background: url(../img/texture-papier.jpg) 0 0 repeat;
 		h2{
 			color: #FFF;
 		}
@@ -159,7 +160,7 @@ header{
 		cursor: pointer;
 		position: absolute;
 		right: 20px;
-		top: 0;
+		top: 5px;
 	}
 	nav{
 		padding: 20px 0 0 0;
@@ -267,7 +268,6 @@ section{
 	.going-area{
 		padding-top: 20px;
 		text-align: center;
-		padding-left: 5%;
 		p{
 			margin-bottom:10px;
 			color: #FFF;
@@ -278,8 +278,9 @@ section{
 				@include border-radius(5px);
 				border: 2px solid #FFF;
 				padding: 5px;
-				display: block;
 				cursor: pointer;
+				display: inline-block;
+				margin-top: 20px;
 			}
 		}
 	}
@@ -362,7 +363,10 @@ section{
 		}
 		form{
 			width: 100%;
-			overflow-x: hidden;
+			overflow-y: hidden;
+			&#registrationFormYes{
+				overflow-y: hidden;
+			}
 			.btn-area{
 				margin-top: 40px;
 			}

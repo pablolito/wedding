@@ -16,15 +16,10 @@ var configDB = require('./config/database.js');
 // configuration ===============================================================
 
 // connect to our database
-/*dom.on('error', function(er){
-	console.log("error with db");
-})
-dom.run(function(){
 
-});*/
-
+var optionsDb = { replset: { socketOptions: { connectTimeoutMS : 10000, keepAlive: 120 }}};
 mongoose.connect(configDB.url);
-
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 require('./config/passport')(passport); // pass passport for configuration

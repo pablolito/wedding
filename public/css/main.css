@@ -1659,7 +1659,7 @@ ul, li {
 section {
   background-color: #FFF; }
   section.bgd {
-    background-color: #aa8bbe; }
+    background: url(../img/texture-papier.jpg) 0 0 repeat; }
     section.bgd h2 {
       color: #FFF; }
   section.bgd-texture {
@@ -1742,7 +1742,7 @@ header {
     cursor: pointer;
     position: absolute;
     right: 20px;
-    top: 0; }
+    top: 5px; }
   header nav {
     padding: 20px 0 0 0;
     display: none;
@@ -1824,8 +1824,7 @@ section {
       text-transform: none; }
   section .going-area {
     padding-top: 20px;
-    text-align: center;
-    padding-left: 5%; }
+    text-align: center; }
     section .going-area p {
       margin-bottom: 10px;
       color: #FFF;
@@ -1838,8 +1837,9 @@ section {
         border-radius: 5px;
         border: 2px solid #FFF;
         padding: 5px;
-        display: block;
-        cursor: pointer; }
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 20px; }
   section #map {
     width: 100%;
     height: 400px; }
@@ -1900,7 +1900,9 @@ section {
         cursor: pointer; }
     section.form form {
       width: 100%;
-      overflow-x: hidden; }
+      overflow-y: hidden; }
+      section.form form#registrationFormYes {
+        overflow-y: hidden; }
       section.form form .btn-area {
         margin-top: 40px; }
       section.form form .textarea {

@@ -63,13 +63,30 @@ module.exports = function(app, passport) {
 	app.post('/profile', function(req, res) {
 		var titlePage = "MMA se marient ! - Welcome Dude",
 		imComing = req.body.imComing,
+		nbGuest = req.body.nbGuest,
 		firstName = req.body.firstName,
 		lastName = req.body.lastName,
 		email = req.body.email,
 		vege = req.body.vegetarian,
-		guestFirstName1 = req.body.guestFirstName1,
-		guestLastName1 = req.body.guestLastName1,
-		vege1 = req.body.vegetarien1;
+		transportation = req.body.transportation,
+		availableQuantity = req.body.availableQuantity,
+		neededQuantity = req.body.neededQuantity,
+		accomodation = req.body.accomodation,
+		dayAfter = req.body.dayAfter,
+		message = req.body.message,
+		guestTab = [];
+		
+		for (var i=0;i<nbGuest;i++){
+			var optCount = i + 1;
+			var guest = {
+				firstName: req.body["guestFirstName" +optCount],
+				lastName: req.body["guestLastName" +optCount],
+				vege: req.body["guestVege" +optCount]
+			}
+			guestTab.push(guest);
+		}
+		
+		console.log(guestTab);
 
 	    var addUser = new Registration({
 			imComing: imComing,
@@ -77,20 +94,21 @@ module.exports = function(app, passport) {
 			lastName: lastName,
 			email: email,
 			vege: vege,
-			guest: [{
-			   firstName: guestFirstName1,
-			   lastName: guestLastName1,
-			   vege: vege1
-			}] 
+			guest: guestTab,
+			transportation: transportation,
+			availableQuantity: availableQuantity,
+			neededQuantity: neededQuantity,
+			accomodation: accomodation,
+			dayAfter: dayAfter,
+			message: message
   		});
 
   		addUser.save(function(err) {
 		  if (err) throw err;
-		  console.log('User saved successfully!');
+		  	res.send("request send");
+			res.redirect("/profile");
 		});
 		
-		res.render('profile.ejs', { user : req.user,
-		titlePage: titlePage });
 	    
 	});
 
