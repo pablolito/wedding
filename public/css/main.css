@@ -1595,7 +1595,6 @@ textarea.custom-textarea {
   -ms-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   z-index: 100; }
@@ -1605,21 +1604,15 @@ textarea.custom-textarea {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
     display: inline-block;
     position: relative;
     top: 50%;
     padding: 30px;
     background-color: #FFF; }
-    .popin .popin-cnt .close-ico {
-      background: url(../img/ico-close.svg) 0 0 no-repeat;
-      width: 30px;
-      height: 30px;
+    .popin .popin-cnt .icon {
       position: absolute;
-      top: 30px;
-      right: 30px;
+      top: 10px;
+      right: 10px;
       z-index: 1;
       cursor: pointer; }
 
@@ -1677,6 +1670,11 @@ section {
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px dashed #e1e1e1; }
+
+footer {
+  background-color: #aa8bbe;
+  color: white;
+  padding: 20px 0; }
 
 /* btn */
 .btn {

@@ -55,57 +55,73 @@ module.exports = function(app, passport) {
 		var titlePage = "MMA se marient ! - Welcome Dude";
 		res.render('profile.ejs', {
 			user : req.user, // get the user out of session and pass to template
-			titlePage: titlePage
+			titlePage: titlePage,
+			message: req.flash('confirmMsg')
 		});
 	});
 
 	// process the inscription form
 	app.post('/profile', function(req, res) {
 		var titlePage = "MMA se marient ! - Welcome Dude",
-		imComing = req.body.imComing,
-		nbGuest = req.body.nbGuest,
-		firstName = req.body.firstName,
-		lastName = req.body.lastName,
-		email = req.body.email,
-		vege = req.body.vegetarian,
-		transportation = req.body.transportation,
-		availableQuantity = req.body.availableQuantity,
-		neededQuantity = req.body.neededQuantity,
-		accomodation = req.body.accomodation,
-		dayAfter = req.body.dayAfter,
-		message = req.body.message,
-		guestTab = [];
+		imComing = req.body.imComing;
 		
-		for (var i=0;i<nbGuest;i++){
-			var optCount = i + 1;
-			var guest = {
-				firstName: req.body["guestFirstName" +optCount],
-				lastName: req.body["guestLastName" +optCount],
-				vege: req.body["guestVege" +optCount]
+		/* imComing yes */
+		if(imComing==1){
+			var nbGuest = req.body.nbGuest,
+			firstName = req.body.firstName,
+			lastName = req.body.lastName,
+			email = req.body.email,
+			vege = req.body.vegetarian,
+			transportation = req.body.transportation,
+			availableQuantity = req.body.availableQuantity,
+			neededQuantity = req.body.neededQuantity,
+			accomodation = req.body.accomodation,
+			dayAfter = req.body.dayAfter,
+			message = req.body.message,
+			guestTab = [];
+			
+			for (var i=0;i<nbGuest;i++){
+				var optCount = i + 1;
+				var guest = {
+					firstName: req.body["guestFirstName" +optCount],
+					lastName: req.body["guestLastName" +optCount],
+					vege: req.body["guestVege" +optCount]
+				}
+				guestTab.push(guest);
 			}
-			guestTab.push(guest);
+
+		    var addUser = new Registration({
+				imComing: imComing,
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+				vege: vege,
+				guest: guestTab,
+				transportation: transportation,
+				availableQuantity: availableQuantity,
+				neededQuantity: neededQuantity,
+				accomodation: accomodation,
+				dayAfter: dayAfter,
+				message: message
+	  		});
+		}else{
+			/* imComing no */
+			var firstName = req.body.firstNameNo,
+			lastName = req.body.lastNameNo,
+			message = req.body.messageNo;
+
+			var addUser = new Registration({
+				imComing: imComing,
+				firstName: firstName,
+				lastName: lastName,
+				message: message
+			});
 		}
+
 		
-		console.log(guestTab);
-
-	    var addUser = new Registration({
-			imComing: imComing,
-			firstName: firstName,
-			lastName: lastName,
-			email: email,
-			vege: vege,
-			guest: guestTab,
-			transportation: transportation,
-			availableQuantity: availableQuantity,
-			neededQuantity: neededQuantity,
-			accomodation: accomodation,
-			dayAfter: dayAfter,
-			message: message
-  		});
-
   		addUser.save(function(err) {
 		  if (err) throw err;
-		  	res.send("request send");
+		  	req.flash('confirmMsg', 'Merci ta réponse a bien été envoyé !');
 			res.redirect("/profile");
 		});
 		

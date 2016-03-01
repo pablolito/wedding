@@ -100,7 +100,7 @@ var addGuest = function($targetBtn){
 	var htmlGuestField = "<div class='guestGrp'>";
 	htmlGuestField += "<div class='field mt1'><label class='field-label'>Prénom *</label><input type='text' name='guestFirstName"+cpt+"' id='guestFirstName"+cpt+"' class='field-input required'></div>";
 	htmlGuestField += "<div class='field'><label class='field-label'>Nom *</label><input type='text' name='guestLastName"+cpt+"' id='guestLastName"+cpt+"' class='field-input required'></div>"
-	htmlGuestField += "<div class='mb4'><input type='checkbox' name='guestVege"+cpt+"' id='guestVege"+cpt+"''><label>Je ne mange pas les animaux</label></div>";
+	htmlGuestField += "<div class='mb4'><input type='checkbox' name='guestVege"+cpt+"' id='guestVege"+cpt+"''><label for='guestVege"+cpt+"'>Je ne mange pas les animaux</label></div>";
 	htmlGuestField += "<div class='remove-item-js icon icon-cross'></div>";
 	htmlGuestField += "</div>";
 	$(htmlGuestField).insertBefore(".add-guest-js");
@@ -115,15 +115,13 @@ var addGuest = function($targetBtn){
 			var guestFirstName = $(this).find("input[name^=guestFirstName]");
 			var guestLastName = $(this).find("input[name^=guestLastName]");
 			var guestVege = $(this).find("input[name^=guestVege]");
+			var guestVegeLabel = $(this).find("input[name^=guestVege] + label");
 			guestFirstName.attr({"name": "guestFirstName"+cptGuest, "id": "guestFirstName"+cptGuest});
 			guestLastName.attr({"name": "guestLastName"+cptGuest, "id": "guestLastName"+cptGuest});
 			guestVege.attr({"name": "guestVege"+cptGuest, "id": "guestVege"+cptGuest});
-			if(cptGuest==1){
-				cpt = 0;
-			}else{
-				cpt = cptGuest;
-			}
+			guestVegeLabel.attr("for", "guestVege"+cptGuest);
 		});
+		cpt = cptGuest;
 	});
 }
 
@@ -237,7 +235,7 @@ $(function(){
 	$mainNavOpener = $(".open-nav-js"),
 	$body = $("body"),
 	$mainNav = $("#mainNav"),
-	headerHeight = $header.outerHeight();
+	headerHeight = $header.height();
 
 	/* event click */
 	$mainNavOpener.on("click", function(){
@@ -293,7 +291,14 @@ $(function(){
     	registrationStepByStep.prevStep();
     });
 
-    
+    // popin
+    $(".popin").on("click", function(e){
+		console.log(e.target.className);
+		if( (e.target.className=="popin") || (e.target.className=="icon icon-cross") ){
+			$(this).parent().remove();
+		}
+	});
+
     liveFieldRequired();
 
 
@@ -304,11 +309,11 @@ $(function(){
 	$(window).scroll(function(e) {
 		var scrollPos = $(window).scrollTop();
 		if(scrollPos>0){
-			$body.css("padding-top", headerHeight);
+			//$body.css("padding-top", headerHeight);
 			$header.addClass("fixed");
 		}else{
 			$header.removeClass("fixed");
-			$body.css("padding-top", 0);
+			//$body.css("padding-top", 0);
 		}
 	});
 

@@ -10,6 +10,16 @@
 		<% include partials/header %>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2WT94VJuArd44HUl0YUFFw5aXljPCHfg&callback=initMap" type="text/javascript"></script>
 	</header>
+	<% if (message.length > 0) { %>
+	<div class="modal">
+		<div class="popin">
+			<div class="popin-cnt">
+				<span class="icon icon-cross"></span>
+				<h3><%= message %></h3>
+			</div>
+		</div>
+	</div>	
+	<% } %>
 	<section id="section1" class="push-bride-groom">
 		<div class="cnt-center">
 			<div class="wtf-area">
@@ -101,6 +111,13 @@
 			<% include partials/registration-form %>
 		</div>
 	</section>
+	<footer>
+		<div class="cnt-center txtcenter">
+			 ♥ Joli site conçu à quatre mains ♥ <br>
+			 (bon, ok, surtout deux)<br>
+			 &copy; MmA
+		</div>
+	</footer>
 </div>
 </body>
 </html>
