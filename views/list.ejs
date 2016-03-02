@@ -1,0 +1,33 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+	<% include partials/head %>
+</head>
+<body>
+	<div class="cnt-center">
+		<h3 class="cUniv mb2">Voici les invités qui viennent :</h3>
+		<% for (var i=1; i<invitList.length;i++){ %>
+
+			<div class="blc-result mb4">
+				<p><%= invitList[i].firstName %> <%= invitList[i].lastName %></p>
+				<p><%= invitList[i].email %></p>
+				<p>Végé : <%= invitList[i].vege %></p>
+				<div class="result-guest">
+					
+					<% if(invitList[i].guest.length>0){ %>
+						<p><strong>Accompagné de : </strong></p>
+						<div class="mb2">
+							<% for (var j=1; j<invitList[i].guest.length; j++) {  %>
+								<p><%= invitList[i].guest[j].firstName %> <%= invitList[i].guest[j].lastName %></p>
+								<p>Végé : <%= invitList[i].guest[j].vege %></p>
+							<% } %>
+						</div>
+					<% } %>
+				</div>
+			</div>
+
+		<% } %>
+	</div>
+</body>
+</html>

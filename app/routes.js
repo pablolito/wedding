@@ -62,8 +62,7 @@ module.exports = function(app, passport) {
 
 	// process the inscription form
 	app.post('/profile', function(req, res) {
-		var titlePage = "MMA se marient ! - Welcome Dude",
-		imComing = req.body.imComing;
+		var imComing = req.body.imComing;
 		
 		/* imComing yes */
 		if(imComing==1){
@@ -127,6 +126,24 @@ module.exports = function(app, passport) {
 		
 	    
 	});
+
+	// =====================================
+	// LIST ==============================
+	// =====================================
+	app.get('/list', function(req, res){
+		var titlePage = "Liste des invités";
+		var query = Registration.find({});
+		query.sort({'lastName': -1});
+		query.exec(function(err, invitList){
+			if(err)
+				res.send("erreur "+err);
+			res.render('list.ejs', {
+				invitList : invitList,
+				titlePage: titlePage
+			});
+		});
+	});
+
 
 	// =====================================
 	// LOGOUT ==============================
