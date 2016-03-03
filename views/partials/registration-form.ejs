@@ -7,7 +7,7 @@
 	</p>
 </div>
 <div class="hidden">
-	<form id="registrationFormNo" action="/profile" method="post">
+	<form id="registrationFormNo" action="/profile" method="post" novalidate>
 		<h3>Quel dommage ! On ne t'en veut pas, promis.</h3>
 		<h4 class="mb2">Dis-nous juste qui tu es... et laisse-nous un petit message !</h4>
 		<input type="hidden" name="imComing" id="imComingNo" value="0">
@@ -30,7 +30,7 @@
 </div>
 
 <div class="hidden">
-	<form id="registrationFormYes" action="/profile" method="post">
+	<form id="registrationFormYes" action="/profile" method="post" novalidate>
 		<div id="form-track" class="mod">
 			<fieldset class="current">
 				<h3>Top ! Bienvenue parmi nous !</h3>
@@ -66,16 +66,16 @@
 				<h3>Entre la mairie et le domaine de la Bézardière</h3>
 				<h4 class="mb2">il y a quelques kilomètres...</h4>
 				<div class="mb1">
-					<input type="radio" name="transportation" id="transportationYes" value="Transportation yes"><label for="transportationYes">Pas de soucis, j'ai une voiture / un camion / un camping-car / un vélo électrique</label>
+					<input type="radio" name="transportation" id="transportationYes" value="Oui"><label for="transportationYes">Pas de soucis, j'ai une voiture / un camion / un camping-car / un vélo électrique</label>
 				</div>
 				<div class="mb1">
-					Si quelqu'un à besoin d'être transporté, il me reste <input type="number" value="0" min="0" max="7" name="availableQuantity" id="availableQuantity"> place(s).
+					Si quelqu'un à besoin d'être transporté, il me reste <input type="number" value="0" min="0" max="6" name="availableQuantity" id="availableQuantity"> place(s).
 				</div>
 				<div class="mb1">
-					<input type="radio" name="transportation" id="transportationNo" value="Transportation no"><label for="transportationNo">Aïe, j'avais pas prévu ça, une bonne âme pour me / nous transporter ?</label>
+					<input type="radio" name="transportation" id="transportationNo" value="Non"><label for="transportationNo">Aïe, j'avais pas prévu ça, une bonne âme pour me / nous transporter ?</label>
 				</div>
 				<div class="mb1">
-					J'ai besoin de <input type="number" value="0" min="1" max="6" name="neededQuantity" id="neededQuantity"> place(s).
+					J'ai besoin de <input type="number" value="0" min="0" max="6" name="neededQuantity" id="neededQuantity"> place(s).
 				</div>
 				<div class="mod btn-area">
 					<input type="button" value="précédent" class="btn prev-step left">
@@ -86,16 +86,16 @@
 				<h3>Le soir, pour dormir</h3>
 				<h4 class="mb2">Au cas où...</h4>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationRoots" value="Accomodation roots"><label for="accomodationRoots">Je plante ma tente (c'est rustique mais c'est gratuit !)</label>
+					<input type="radio" name="accomodation" id="accomodationRoots" value="Tente"><label for="accomodationRoots">Je plante ma tente (c'est rustique mais c'est gratuit !)</label>
 				</div>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationRV" value="Accomodation RV"><label for="accomodationRV">J'ai mon camion / mon camping-car (il y a ce qu'il faut sur le domaine et c'est aussi gratuit !)</label>
+					<input type="radio" name="accomodation" id="accomodationRV" value="RV"><label for="accomodationRV">J'ai mon camion / mon camping-car (il y a ce qu'il faut sur le domaine et c'est aussi gratuit !)</label>
 				</div>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationOK" value="Accomodation OK"><label for="accomodationOK">J'ai déjà une chambre quelque part</label>
+					<input type="radio" name="accomodation" id="accomodationOK" value="Hébergement déjà réservé"><label for="accomodationOK">J'ai déjà une chambre quelque part</label>
 				</div>
 				<div class="mb1">
-					<input type="radio" name="accomodation" id="accomodationNone" value="Accomodation none"><label for="accomodationNone">Je n'ai rien, je veux bien des adresses dans les environs (gîtes, hôtels, chambres d'hôtes...)</label>
+					<input type="radio" name="accomodation" id="accomodationNone" value="Pas d'hébergement"><label for="accomodationNone">Je n'ai rien, je veux bien des adresses dans les environs (gîtes, hôtels, chambres d'hôtes...)</label>
 				</div>
 				<div class="mod btn-area">
 					<input type="button" value="précédent" class="btn prev-step left">
@@ -106,10 +106,10 @@
 				<h3>Et le lendemain matin</h3>
 				<h4 class="mb2">euh... midi ?</h4>
 				<div class="mb1">
-					<input type="radio" name="dayAfter" id="dayAfterYes" value="Day after Yes"><label for="dayAfterYes">Je mange avec vous, il faut en profiter jusqu'au bout !</label>
+					<input type="radio" name="dayAfter" id="dayAfterYes" value="Oui"><label for="dayAfterYes">Je mange avec vous, il faut en profiter jusqu'au bout !</label>
 				</div>
 				<div class="mb2">
-					<input type="radio" name="dayAfter" id="dayAfterNo" value="Day after No"><label for="dayAfterNo">Je ne serai pas des vôtres, mangez ma part !</label>
+					<input type="radio" name="dayAfter" id="dayAfterNo" value="Non"><label for="dayAfterNo">Je ne serai pas des vôtres, mangez ma part !</label>
 				</div>
 				<div class="mod btn-area">
 					<input type="button" value="précédent" class="btn prev-step left">

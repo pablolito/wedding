@@ -130,7 +130,7 @@ module.exports = function(app, passport) {
 	// =====================================
 	// LIST ==============================
 	// =====================================
-	app.get('/list', function(req, res){
+	app.get('/list', isLoggedIn, function(req, res){
 		var titlePage = "Liste des invités";
 		var query = Registration.find({});
 		query.sort({'lastName': -1});

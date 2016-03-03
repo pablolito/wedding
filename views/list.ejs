@@ -7,7 +7,7 @@
 <body>
 	<div class="cnt-center">
 		<h3 class="cUniv mb2">Voici les invités qui viennent :</h3>
-		<% for (var i=1; i<invitList.length;i++){ %>
+		<% for (var i=0; i<invitList.length;i++){ %>
 
 			<div class="blc-result mb4">
 				<p><%= invitList[i].firstName %> <%= invitList[i].lastName %></p>
@@ -17,14 +17,22 @@
 					
 					<% if(invitList[i].guest.length>0){ %>
 						<p><strong>Accompagné de : </strong></p>
-						<div class="mb2">
-							<% for (var j=1; j<invitList[i].guest.length; j++) {  %>
+						<% for (var j=0; j<invitList[i].guest.length; j++) {  %>
+							<div class="mb1">
 								<p><%= invitList[i].guest[j].firstName %> <%= invitList[i].guest[j].lastName %></p>
 								<p>Végé : <%= invitList[i].guest[j].vege %></p>
-							<% } %>
-						</div>
+							</div>	
+						<% } %>
 					<% } %>
 				</div>
+				<ul class="mt2">
+					<li>Voiture : <%= invitList[i].transportation %></li>
+					<li>Places disponibles : <%= invitList[i].availableQuantity %></li>
+					<li>Besoins de places : <%= invitList[i].neededQuantity %></li>
+					<li>Hébergement : <%= invitList[i].accomodation %></li>
+					<li>Vient le lendemain : <%= invitList[i].dayAfter %></li>
+					<li>Message : <%= invitList[i].message %></li>
+				</ul>
 			</div>
 
 		<% } %>
