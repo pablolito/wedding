@@ -1898,7 +1898,7 @@ section {
         cursor: pointer; }
     section.form form {
       width: 100%;
-      overflow-y: hidden; }
+      overflow-x: hidden; }
       section.form form#registrationFormYes {
         overflow-y: hidden; }
       section.form form .btn-area {
