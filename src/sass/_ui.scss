@@ -39,59 +39,6 @@
 	}
 }
 
-/* custom menu list */
-.custom-list{
-	@include border-radius(5px);
-	@include transition(opacity 0.5s);
-	background-color: #FFF;
-	border:1px solid #e3e3e3;
-	position: relative;
-	cursor: pointer;
-	.ref{
-		margin:0;
-		overflow: hidden;
-	}
-	&.open{
-		.sub{
-			display: block !important;
-		}
-	}
-	.sub{
-		display: none;
-		line-height: normal;
-		top: 37px;
-		position: absolute;
-		min-width: calc(100% + 2px);
-		left: -1px;
-		z-index: 5;
-		background-color: #FFF;
-		border:1px solid #e3e3e3;
-		padding: 10px;
-		width: auto;
-		cursor: default;
-		ul{
-			max-height:185px;
-			overflow-y: scroll;
-			@include scrollbar();
-			li{
-				padding: 5px 10px;
-				white-space:nowrap;
-				&:last-child{
-					margin-bottom:0;
-				}
-			}
-		}
-	}
-	.open-list-js{
-		padding:10px 30px 10px 15px;
-		background-image: url(../img/select-arrow-grey.svg);
-		background-repeat: no-repeat;
-		background-position-x: calc(100% - 15px);
-		background-position-y: center;
-		background-size: 10px 7px;
-	}
-}
-
 
 /* popin */
 .modal, .popin{
@@ -132,4 +79,26 @@ img.ajax-loader{
 	z-index:5;
 	top:40%;
 	left:45%;
+}
+
+/* rotate animation */
+.boumboum {
+	section *, header *{
+		animation: infinite-rotate 5s infinite;
+	}
+}
+
+@keyframes infinite-rotate{
+	0{
+		@include transform(scale(1));
+	}
+	25%{
+		@include transform(scale(1.5));
+	}
+	50%{
+		@include transform(scale(1));
+	}
+	75%{
+		@include transform(scale(2));
+	}
 }

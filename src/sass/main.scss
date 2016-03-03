@@ -43,50 +43,11 @@ ul, li{
 	color:$primary-color;
 }
 
-.custom-list{
-	width:200px;
-}
-
 .hidden{
 	display: none;
 }
 
 /* template mobile first */
-
-section{
-	background-color: #FFF;
-	&.bgd{
-		//background-color: $primary-color;
-		background: url(../img/texture-papier.jpg) 0 0 repeat;
-		h2{
-			color: #FFF;
-		}
-	}
-	&.bgd-texture{
-		position: relative;
-		background: url(../img/bgd-handmadepaper.png) 0 0 repeat;
-		&:before{
-			content: "";
-			background: url(../img/bgd-wave.png) 0 0 repeat-x;
-			height: 13px;
-			width: 100%;
-			position: absolute;
-			top: -13px;
-			left: 0;
-		}
-		.separator-area{
-			margin-top: 20px;
-			padding-top: 20px;
-			border-top: 1px dashed #e1e1e1;
-		}
-	}
-}
-
-footer{
-	background-color: $primary-color;
-	color: white;
-	padding: 20px 0;
-}
 
 /* btn */
 .btn{
@@ -189,45 +150,9 @@ header{
 	}
 }
 
-@media (min-width: $screen-sm-min) {
-	.hide-on-desktop{
-		display: none;
-	}
-	header {
-		.logo{
-			float: left;
-		}
-		nav{
-			display: block;
-			padding: 0;
-			float: right;
-			width: 80%;
-			text-align: right;
-			margin-top: 5px;
-			ul{
-				li{
-					display: inline-block;
-					font-size: 25px;
-					text-align: left;
-					margin: 0;
-					a{
-						padding: 0 10px;
-						border-right: 1px solid #e1e1e1;
-					}
-					&:last-child{
-						a{
-							border-right: none;
-							padding-right: 0;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
 
 section{
+	background-color: #FFF;
 	padding: 20px 0;
 	h2{
 		font-family: $font-stack-secondary;
@@ -242,6 +167,30 @@ section{
 		font-size: 20px;
 		color: $tertiary-color;
 		margin-bottom:5px;
+	}
+	&.bgd{
+		background: url(../img/texture-papier.jpg) 0 0 repeat;
+		h2{
+			color: #FFF;
+		}
+	}
+	&.bgd-texture{
+		position: relative;
+		background: url(../img/bgd-handmadepaper.png) 0 0 repeat;
+		&:before{
+			content: "";
+			background: url(../img/bgd-wave.png) 0 0 repeat-x;
+			height: 13px;
+			width: 100%;
+			position: absolute;
+			top: -13px;
+			left: 0;
+		}
+		.separator-area{
+			margin-top: 20px;
+			padding-top: 20px;
+			border-top: 1px dashed #e1e1e1;
+		}
 	}
 	&.push-bride-groom{
 		background:url(../img/bgd-first-2.jpg) fixed 0 0 no-repeat;
@@ -407,6 +356,7 @@ section{
 	}
 }
 
+/* list view */
 .blc-result{
 	padding: 10px;
 	background-color: #e1e1e1;
@@ -416,7 +366,48 @@ section{
 	padding-left: 10px;
 }
 
+
+footer{
+	background-color: $primary-color;
+	color: white;
+	padding: 20px 0;
+}
+
 @media (min-width: $screen-sm-min) {
+	.hide-on-desktop{
+		display: none;
+	}
+	header {
+		.logo{
+			float: left;
+		}
+		nav{
+			display: block;
+			padding: 0;
+			float: right;
+			width: 80%;
+			text-align: right;
+			margin-top: 5px;
+			ul{
+				li{
+					display: inline-block;
+					font-size: 25px;
+					text-align: left;
+					margin: 0;
+					a{
+						padding: 0 10px;
+						border-right: 1px solid #e1e1e1;
+					}
+					&:last-child{
+						a{
+							border-right: none;
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 	section{
 		padding: 40px 0;
 		h2{

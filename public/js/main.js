@@ -125,6 +125,17 @@ var addGuest = function($targetBtn){
 	});
 }
 
+var pieceofsheet = {
+	boum : function(){
+		var sound = new Audio("sound/boumboum.mp3");
+		sound.play();
+	},
+	boumboum : function(){
+		$("body").addClass("boumboum");
+	}
+
+}
+
 /* registration form step by step */
 var registrationStepByStep = {
 	containerForm: "#form-track",
@@ -304,6 +315,23 @@ $(function(){
 
     /* shit */
     mapPosition = $("#map").offset();
+
+    // Ouai ouai tu l'a trouvé :) !!
+	var k = [66, 79, 85, 77, 66, 79, 85, 77],
+	n = 0;
+	$(document).keydown(function (e) {
+	    if (e.keyCode === k[n++]) {
+	        if (n === k.length) {
+	            pieceofsheet.boum();
+	            pieceofsheet.boumboum();
+	            n = 0;
+	            return false;
+	        }
+	    }
+	    else {
+	        n = 0;
+	    }
+	});
 	
 	/* event scroll */
 	$(window).scroll(function(e) {
